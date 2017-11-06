@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MVCDemo.Models
 {
@@ -10,7 +11,7 @@ namespace MVCDemo.Models
         public string Contact { get; set; }
         public DateTime DateOfBirth { get; set; }
 
-
+        public IEnumerable<Course> CourseList { get; set; }
 
     }
 }

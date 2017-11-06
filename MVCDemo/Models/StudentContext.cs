@@ -1,6 +1,11 @@
-﻿namespace MVCDemo.Models
+﻿using System.Data.Entity;
+
+namespace MVCDemo.Models
 {
-    public class StudentContext
+    public class StudentContext:DbContext
     {
+        DbSet<Course> DbSetCourses { get; set; }
+        DbSet<Student> DbSetStudents { get; set; }
+
     }
 }
