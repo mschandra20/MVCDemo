@@ -8,6 +8,8 @@ namespace MVCDemo.Models
         public string Name { get; set; }
         public int Capacity { get; set; }
 
+        //Navigation properties
+
         public IEnumerable<Student> StudentList { get; set; }
 
     }

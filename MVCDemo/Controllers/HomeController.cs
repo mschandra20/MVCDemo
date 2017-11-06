@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using MVCDemo.Models;
 using System.Web.Mvc;
 
 namespace MVCDemo.Controllers
@@ -10,7 +7,11 @@ namespace MVCDemo.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            StudentContext s_context = new StudentContext();
+
+            var c= s_context.DbSetCourses.Add(new Course { Capacity = 100, CourseID = 10254, Name = "Programming" });
+
+            return View(c);
         }
 
         public ActionResult About()

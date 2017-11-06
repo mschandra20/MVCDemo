@@ -11,6 +11,7 @@ namespace MVCDemo.Models
         public string Contact { get; set; }
         public DateTime DateOfBirth { get; set; }
 
+        //Navigation properties
         public IEnumerable<Course> CourseList { get; set; }
 
     }

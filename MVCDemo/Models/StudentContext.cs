@@ -4,8 +4,8 @@ namespace MVCDemo.Models
 {
     public class StudentContext:DbContext
     {
-        DbSet<Course> DbSetCourses { get; set; }
-        DbSet<Student> DbSetStudents { get; set; }
+       public DbSet<Course> DbSetCourses { get; set; }
+        public DbSet<Student> DbSetStudents { get; set; }
 
     }
 }
