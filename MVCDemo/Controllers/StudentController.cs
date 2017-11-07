@@ -1,4 +1,5 @@
 ﻿using MVCDemo.Models;
+using System;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -18,9 +19,11 @@ namespace MVCDemo.Controllers
         // GET: Student/Details/5
         public ActionResult Details(int id)
         {
+            StudentContext s_context = new StudentContext();
+            var StudentDetails = s_context.DbSetStudents.SingleOrDefault(s => s.StudentID == id);
 
 
-            return View();
+            return View(StudentDetails);
         }
 
         // GET: Student/Create
@@ -40,14 +43,16 @@ namespace MVCDemo.Controllers
             {
                 // TODO: Add insert logic here
                 StudentContext s_context = new StudentContext();
-                s_context.DbSetStudents.Add(student);
-                //new Student
-                //{
-                //    Name=student.Name,
-                //    Address=student.Address,
-                //    Contact=student.Contact,
-                //    DateOfBirth=student.DateOfBirth
-                //});
+                s_context.DbSetStudents.Add(
+                new Student
+                {
+                    Name = student.Name,
+                    Address = student.Address,
+                    Contact = student.Contact,
+                    DateOfBirth = student.DateOfBirth,
+                    EnrollmentID= new Random().Next(100001, 199999)
+
+                });
 
 
                 s_context.SaveChanges();

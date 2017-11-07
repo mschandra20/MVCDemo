@@ -157,6 +157,10 @@
     <Compile Include="Migrations\201711062214018_InitialCreate.Designer.cs">
       <DependentUpon>201711062214018_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711071656130_AddedEnrollemntIDforStudent.cs" />
+    <Compile Include="Migrations\201711071656130_AddedEnrollemntIDforStudent.Designer.cs">
+      <DependentUpon>201711071656130_AddedEnrollemntIDforStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Student.cs" />
@@ -202,6 +206,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Student\Create.cshtml" />
+    <Content Include="Views\Student\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -222,6 +227,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711062214018_InitialCreate.resx">
       <DependentUpon>201711062214018_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711071656130_AddedEnrollemntIDforStudent.resx">
+      <DependentUpon>201711071656130_AddedEnrollemntIDforStudent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

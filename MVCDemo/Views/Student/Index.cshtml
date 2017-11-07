@@ -18,10 +18,10 @@
             @Html.DisplayNameFor(model => model.Address)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Contact) Phone
+            @Html.DisplayNameFor(model => model.Contact) 
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateOfBirth)Date Of Birth
+            @Html.DisplayNameFor(model => model.DateOfBirth)
         </th>
         <th></th>
     </tr>
@@ -41,14 +41,15 @@
             @Html.DisplayFor(modelItem => item.DateOfBirth)
         </td>
         <td>
-            <span class="btn btn-primary">
+            <span class="btn">
+                @*<input type="submit" value="Edit" class="btn btn-default" />*@
                 @Html.ActionLink("Edit", "Edit", new { id = item.StudentID }) 
             </span>
-            <span class="btn btn-info">
+            <span class="btn">
 
                 @Html.ActionLink("Details", "Details", new { id = item.StudentID }) 
             </span>
-            <span class="btn btn-danger">
+            <span class="btn">
 
                 @Html.ActionLink("Delete", "Delete", new { id = item.StudentID })
             </span>
