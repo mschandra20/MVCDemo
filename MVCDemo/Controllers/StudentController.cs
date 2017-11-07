@@ -68,16 +68,24 @@ namespace MVCDemo.Controllers
         // GET: Student/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            StudentContext s_context = new StudentContext();
+            var StudentDetails = s_context.DbSetStudents.SingleOrDefault(s => s.StudentID == id);
+
+            return View(StudentDetails);
         }
 
         // POST: Student/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit([Bind(Include = "StudentID,Name,Address,Contact,DateOfBirth")] Student student)
         {
             try
             {
                 // TODO: Add update logic here
+                StudentContext s_context = new StudentContext();
+                
+                s_context.Entry(student).State=System.Data.Entity.EntityState.Modified;
+                s_context.SaveChanges();
+
 
                 return RedirectToAction("Index");
             }
