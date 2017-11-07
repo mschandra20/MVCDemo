@@ -10,7 +10,7 @@ namespace MVCDemo.Controllers
         public ActionResult Index()
         {
             StudentContext s_context = new StudentContext();
-            var ListOfStudents= s_context.DbSetStudents.ToList();
+            var ListOfStudents = s_context.DbSetStudents.ToList();
 
             return View(ListOfStudents);
         }
@@ -40,19 +40,19 @@ namespace MVCDemo.Controllers
             {
                 // TODO: Add insert logic here
                 StudentContext s_context = new StudentContext();
-                s_context.DbSetStudents.Add(
-                new Student
-                {
-                    Name=student.Name,
-                    Address=student.Address,
-                    Contact=student.Contact,
-                    DateOfBirth=student.DateOfBirth
-                });
+                s_context.DbSetStudents.Add(student);
+                //new Student
+                //{
+                //    Name=student.Name,
+                //    Address=student.Address,
+                //    Contact=student.Contact,
+                //    DateOfBirth=student.DateOfBirth
+                //});
 
 
                 s_context.SaveChanges();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Student");
             }
             catch
             {
@@ -85,7 +85,13 @@ namespace MVCDemo.Controllers
         // GET: Student/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            StudentContext s_context = new StudentContext();
+
+            var DelStu = s_context.DbSetStudents.SingleOrDefault(x => x.StudentID == id);
+            s_context.DbSetStudents.Remove(DelStu);
+            s_context.SaveChanges();
+
+            return RedirectToAction("Index","Student");
         }
 
         // POST: Student/Delete/5
