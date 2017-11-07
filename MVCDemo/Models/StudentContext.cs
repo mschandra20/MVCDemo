@@ -1,10 +1,11 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace MVCDemo.Models
 {
     public class StudentContext:DbContext
     {
-        public StudentContext() : base("StudentCourseDatabase")
+        public StudentContext() : base("MVCDemoDBCS")
         {
 
         }
@@ -17,7 +18,7 @@ namespace MVCDemo.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
     }
 }

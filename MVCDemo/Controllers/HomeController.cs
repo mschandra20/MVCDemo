@@ -9,7 +9,8 @@ namespace MVCDemo.Controllers
         {
             StudentContext s_context = new StudentContext();
 
-            var c= s_context.DbSetCourses.Add(new Course { Capacity = 100, CourseID = 10254, Name = "Programming" });
+            var c= s_context.DbSetCourses.Add(
+                new Course { Capacity = 100, CourseID = 10254, Name = "Programming" });
 
             return View(c);
         }
