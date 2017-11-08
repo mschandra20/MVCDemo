@@ -1,8 +1,8 @@
 ﻿using MVCDemo.Models;
 using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
-
 namespace MVCDemo.Controllers
 {
     public class StudentController : Controller
@@ -50,7 +50,7 @@ namespace MVCDemo.Controllers
                     Address = student.Address,
                     Contact = student.Contact,
                     DateOfBirth = student.DateOfBirth,
-                    EnrollmentID= new Random().Next(100001, 199999)
+                    EnrollmentID = new Random().Next(100001, 199999)
 
                 });
 
@@ -76,22 +76,22 @@ namespace MVCDemo.Controllers
 
         // POST: Student/Edit/5
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "StudentID,Name,Address,Contact,DateOfBirth")] Student student)
+        public ActionResult Edit([Bind(Include = "EnrollmentID,Name,Address,Contact,DateOfBirth")] Student student)
         {
-            try
+            if (ModelState.IsValid)
             {
                 // TODO: Add update logic here
                 StudentContext s_context = new StudentContext();
-                
-                s_context.Entry(student).State=System.Data.Entity.EntityState.Modified;
+
+                s_context.Entry(student).State = EntityState.Modified;
                 s_context.SaveChanges();
 
+                return RedirectToAction("Index", "Student");
 
-                return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
+            else
+            { 
+                return RedirectToAction("Index", "Student");
             }
         }
 

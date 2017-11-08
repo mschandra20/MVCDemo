@@ -148,6 +148,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
@@ -160,6 +161,10 @@
     <Compile Include="Migrations\201711071656130_AddedEnrollemntIDforStudent.cs" />
     <Compile Include="Migrations\201711071656130_AddedEnrollemntIDforStudent.Designer.cs">
       <DependentUpon>201711071656130_AddedEnrollemntIDforStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711081947323_AddedCourseNumber.cs" />
+    <Compile Include="Migrations\201711081947323_AddedCourseNumber.Designer.cs">
+      <DependentUpon>201711081947323_AddedCourseNumber.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
@@ -208,6 +213,8 @@
     <Content Include="Views\Student\Create.cshtml" />
     <Content Include="Views\Student\Details.cshtml" />
     <Content Include="Views\Student\Edit.cshtml" />
+    <Content Include="Views\Course\Create.cshtml" />
+    <Content Include="Views\Course\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -231,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711071656130_AddedEnrollemntIDforStudent.resx">
       <DependentUpon>201711071656130_AddedEnrollemntIDforStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711081947323_AddedCourseNumber.resx">
+      <DependentUpon>201711081947323_AddedCourseNumber.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

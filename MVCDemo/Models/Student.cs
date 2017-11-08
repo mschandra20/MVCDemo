@@ -6,7 +6,7 @@ namespace MVCDemo.Models
 {
     public class Student
     {
-        [Key]
+        //[Key]
         public int StudentID { get; set; }
 
         //[Key]
