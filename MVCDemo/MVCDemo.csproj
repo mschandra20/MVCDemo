@@ -166,6 +166,14 @@
     <Compile Include="Migrations\201711081947323_AddedCourseNumber.Designer.cs">
       <DependentUpon>201711081947323_AddedCourseNumber.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711082236235_AddedEnrollments.cs" />
+    <Compile Include="Migrations\201711082236235_AddedEnrollments.Designer.cs">
+      <DependentUpon>201711082236235_AddedEnrollments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711082238424_AddedEnrollments1.cs" />
+    <Compile Include="Migrations\201711082238424_AddedEnrollments1.Designer.cs">
+      <DependentUpon>201711082238424_AddedEnrollments1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Student.cs" />
@@ -241,6 +249,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711081947323_AddedCourseNumber.resx">
       <DependentUpon>201711081947323_AddedCourseNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711082236235_AddedEnrollments.resx">
+      <DependentUpon>201711082236235_AddedEnrollments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711082238424_AddedEnrollments1.resx">
+      <DependentUpon>201711082238424_AddedEnrollments1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

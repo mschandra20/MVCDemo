@@ -27,7 +27,31 @@ namespace MVCDemo.Controllers
             if (ModelState.IsValid)
             {
                 StudentContext s_context = new StudentContext();
-                s_context.DbSetCourses.Add(new Course {CourseNumber=new Random().Next(4001,4999)});
+                
+                int rnd = new Random().Next(4001, 4999);
+                if (s_context.DbSetCourses.Any(cn => cn.CourseNumber != rnd))
+                {
+                    s_context.DbSetCourses.Add(
+                        new Course
+                        {
+                          CourseNumber = rnd,
+                          Name =course.Name,
+                          Capacity=course.Capacity,
+                          
+                          
+                        });
+                }
+                else
+                {
+                    s_context.DbSetCourses.Add(
+                        new Course
+                        {
+                            CourseNumber = new Random().Next(rnd, 4999),
+                            Name = course.Name,
+                            Capacity = course.Capacity
+                        });
+                }
+                
                 s_context.SaveChanges();
                 
                 
