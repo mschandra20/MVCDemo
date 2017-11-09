@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", "Student", null, new { @class = "btn btn-primary btn-large btn-custom" })
 </p>
 <table class="table">
     <tr>
@@ -18,7 +18,7 @@
             @Html.DisplayNameFor(model => model.Address)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Contact) 
+            @Html.DisplayNameFor(model => model.Contact)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DateOfBirth)
@@ -26,35 +26,40 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Contact)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateOfBirth)
-        </td>
-        <td>
-            <span class="btn">
-                @*<input type="submit" value="Edit" class="btn btn-default" />*@
-                @Html.ActionLink("Edit", "Edit", new { id = item.StudentID }) 
-            </span>
-            <span class="btn">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
 
-                @Html.ActionLink("Details", "Details", new { id = item.StudentID }) 
-            </span>
-            <span class="btn">
 
-                @Html.ActionLink("Delete", "Delete", new { id = item.StudentID })
-            </span>
-        </td>
-    </tr>
-}
+                @Html.ActionLink("Edit"
+                                , "Edit"
+                                , "Student"
+                                , null
+                                , null
+                                , null
+                                , new { id = item.StudentID }, new { @class = "btn btn-primary btn-large btn-custom" })
+
+                @Html.ActionLink("Details", "Details", "Student", null, null, null,
+                                    new { id = item.StudentID }, new { @class = "btn btn-primary btn-large btn-custom" })
+
+                @Html.ActionLink("Delete", "Delete", "Student", null, null, null,
+                                    new { id = item.StudentID }, new { @class = "btn btn-danger btn-large btn-custom" })
+
+            </td>
+        </tr>
+    }
 
 </table>
