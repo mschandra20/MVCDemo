@@ -29,10 +29,11 @@ textarea {
 
 /*BUTTONS*/
 .btn {
-border-radius: 0px 0px;
+border-radius: 1px 1px;
 
 }
 .btn-primary {
+    border:none;
     background-color:white;
     border-color:white;
     color:black;
@@ -43,25 +44,33 @@ border-radius: 0px 0px;
     /*border-left-color:red;*/
     color:black;
 }
-
-
-
-/**//**//*HOVERS*//**//**//**//**/
+.btn-save {
+    border: 1px solid #249daf;
+}
+/**/ /**/ /*HOVERS*/ /**/ /**/ /**/ /**/
 .btn-primary:hover {
-    border-left-color: #249daf;
+    /*border-left-color: #249daf;
     border-right-color: #249daf;
-    border-top-color: #249daf;
-    border-bottom-color:deepskyblue;
+    border-top-color: #249daf;*/
+    border-bottom:1px solid deepskyblue;
     background-color: #249daf;
     transition-duration: 0.2s;
     transition-timing-function: cubic-bezier();
 }
+.btn-primary:focus {
+    background-color:deepskyblue;
 
+}
 .btn-danger:hover {
 
    animation-direction:reverse;
 
 }
+
+/*.btn-save:hover {
+margin-bottom:6px;
+transition-duration:0.1s;
+}*/
 
 .navbar-inverse {
     background-color: #249daf;

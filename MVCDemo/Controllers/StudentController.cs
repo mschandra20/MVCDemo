@@ -22,7 +22,6 @@ namespace MVCDemo.Controllers
             StudentContext s_context = new StudentContext();
             var StudentDetails = s_context.DbSetStudents.SingleOrDefault(s => s.StudentID == id);
 
-
             return View(StudentDetails);
         }
 
@@ -30,9 +29,10 @@ namespace MVCDemo.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            StudentContext s_context = new StudentContext();
+            var CourseList = s_context.DbSetCourses.ToList();
 
-
-            return View();
+            return View(CourseList);
         }
 
         // POST: Student/Create
@@ -76,7 +76,7 @@ namespace MVCDemo.Controllers
 
         // POST: Student/Edit/5
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "EnrollmentID,Name,Address,Contact,DateOfBirth")] Student student,int id)
+        public ActionResult Edit([Bind(Include = "EnrollmentID,Name,Address,Contact,DateOfBirth")] Student student, int id)
         {
             if (ModelState.IsValid)
             {
@@ -137,5 +137,20 @@ namespace MVCDemo.Controllers
                 return View();
             }
         }
+
+
+
+        [HttpGet]
+        public ActionResult Enroll(int id)
+        {
+            StudentContext s_context = new StudentContext();
+            var EnrollStudent= s_context.DbSetStudents.SingleOrDefault(i => i.StudentID == id);
+
+
+
+            return  View(EnrollStudent);
+            
+        }
+
     }
 }

@@ -1,15 +1,15 @@
 ﻿@model MVCDemo.Models.Student
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Enroll";
 }
 
-<h2>Details</h2>
+<h2>Enroll</h2>
 
 <div>
-    <h4>Student</h4>
+    <h4>Student Enrollment Form</h4>
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal ">
         <dt>
             @Html.DisplayNameFor(model => model.EnrollmentID)
         </dt>
@@ -50,14 +50,17 @@
             @Html.DisplayFor(model => model.DateOfBirth)
         </dd>
 
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Course)
+        </dt>
+
+        <dd>
+            @Html.DropDownListFor(m=>m.Course,new SelectList(Model.CourseList,"CourseID","Name"))
+        </dd>*@
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit","Student", new { id = Model.StudentID },new { @class="btn btn-primary btn-save"})
-    
-    @Html.ActionLink("Back to List", "Index","Student",new { @class="btn btn-primary btn-save" })
-
-    @Html.ActionLink("Enroll Student", "Enroll", "Student", new { @class = "btn btn-primary btn-save" })
-
-
+    @*@Html.ActionLink("Enroll", "Enroll", "Student", new { @class = "btn btn-primary btn-save" })*@
+    @Html.ActionLink("Cancel Enrollment", "Index", "Student", new { @class = "btn btn-primary btn-save" })
 </p>

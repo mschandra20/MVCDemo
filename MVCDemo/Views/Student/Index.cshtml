@@ -47,16 +47,16 @@
                 @Html.ActionLink("Edit"
                                 , "Edit"
                                 , "Student"
-                                , null
-                                , null
-                                , null
                                 , new { id = item.StudentID }, new { @class = "btn btn-primary btn-large btn-custom" })
 
-                @Html.ActionLink("Details", "Details", "Student", null, null, null,
+                @Html.ActionLink("Details", "Details", "Student", 
                                     new { id = item.StudentID }, new { @class = "btn btn-primary btn-large btn-custom" })
 
-                @Html.ActionLink("Delete", "Delete", "Student", null, null, null,
+                @Html.ActionLink("Delete", "Delete", "Student", 
                                     new { id = item.StudentID }, new { @class = "btn btn-danger btn-large btn-custom" })
+                
+                @Html.ActionLink("Quick Enroll", "Enroll", "Student",
+                                    new { id = item.StudentID }, new { @class = "btn btn-primary btn-large btn-custom" })
 
             </td>
         </tr>

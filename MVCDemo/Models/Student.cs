@@ -24,6 +24,8 @@ namespace MVCDemo.Models
         [Required]
         public DateTime DateOfBirth { get; set; }
 
+
+        public int Course { get; set; }
         //Navigation properties
         public IEnumerable<Course> CourseList { get; set; }
 

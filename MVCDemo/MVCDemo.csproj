@@ -178,6 +178,10 @@
     <Compile Include="Migrations\201711090502566_DataAnnotationsAdded.Designer.cs">
       <DependentUpon>201711090502566_DataAnnotationsAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711092152065_AddedDropdownForCourse.cs" />
+    <Compile Include="Migrations\201711092152065_AddedDropdownForCourse.Designer.cs">
+      <DependentUpon>201711092152065_AddedDropdownForCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Student.cs" />
@@ -229,6 +233,7 @@
     <Content Include="Views\Course\Index.cshtml" />
     <Content Include="Views\Course\Details.cshtml" />
     <Content Include="Views\Course\Edit.cshtml" />
+    <Content Include="Views\Student\Enroll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -264,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711090502566_DataAnnotationsAdded.resx">
       <DependentUpon>201711090502566_DataAnnotationsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711092152065_AddedDropdownForCourse.resx">
+      <DependentUpon>201711092152065_AddedDropdownForCourse.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

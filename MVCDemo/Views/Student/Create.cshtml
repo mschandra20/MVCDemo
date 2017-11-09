@@ -16,21 +16,6 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         
-        @* 
-        @*<div class="form-group">
-            
-            
-            Html.LabelFor(model => model.EnrollmentID, htmlAttributes: new { @class = "control-label col-md-2" })
-            {
-                Random r = new Random();
-                // Model.EnrollmentID = r.Next(100001, 199999);
-
-                //Html.DisplayFor(model => model.EnrollmentID.Equals(r.Next(100001, 199999)));
-            }
-        *@
-
-
-
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -63,6 +48,13 @@
             </div>
         </div>
 
+        <div>
+            @Html.DisplayNameFor(model => model.Course)
+        </div>
+        <div>
+          @*  @Html.DropDownListFor(m => m.Course, new SelectList(Model.CourseList, "CourseID", "Name"))*@
+        </div>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
@@ -72,7 +64,7 @@
 }
 
 <div >
-    @Html.ActionLink("Back to List", "Index",new {@class="btn btn-primary" })
+    @Html.ActionLink("Cancel", "Index",new {@class="btn btn-primary btn-save" })
 </div>
 
 @section Scripts {
