@@ -77,5 +77,15 @@ namespace MVCDemo.Controllers
 
             return View(CourseDetails);
         }
+
+        public ActionResult Delete(int id)
+        {
+            StudentContext s_context = new StudentContext();
+            var DeleteCourse = s_context.DbSetCourses.Single(s => s.CourseID == id);
+            s_context.DbSetCourses.Remove(DeleteCourse);
+            s_context.SaveChanges();
+
+            return RedirectToAction("Index","Course");
+        }
     }
 }
