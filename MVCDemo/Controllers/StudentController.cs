@@ -76,21 +76,36 @@ namespace MVCDemo.Controllers
 
         // POST: Student/Edit/5
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "EnrollmentID,Name,Address,Contact,DateOfBirth")] Student student)
+        public ActionResult Edit([Bind(Include = "EnrollmentID,Name,Address,Contact,DateOfBirth")] Student student,int id)
         {
             if (ModelState.IsValid)
             {
+                Student stu;
                 // TODO: Add update logic here
-                StudentContext s_context = new StudentContext();
+                using (StudentContext s_context = new StudentContext())
+                {
+                    stu = s_context.DbSetStudents.Where(s => s.StudentID == id).FirstOrDefault<Student>();
+                }
 
-                s_context.Entry(student).State = EntityState.Modified;
-                s_context.SaveChanges();
+                if (stu != null)
+                {
+                    stu.EnrollmentID = student.EnrollmentID;
+                    stu.Name = student.Name;
+                    stu.Address = student.Address;
+                    stu.Contact = student.Contact;
+                    stu.DateOfBirth = student.DateOfBirth;
+                }
 
+                using (StudentContext sDB_context = new StudentContext())
+                {
+                    sDB_context.Entry(stu).State = EntityState.Modified;
+                    sDB_context.SaveChanges();
+                }
                 return RedirectToAction("Index", "Student");
 
             }
             else
-            { 
+            {
                 return RedirectToAction("Index", "Student");
             }
         }
@@ -104,7 +119,7 @@ namespace MVCDemo.Controllers
             s_context.DbSetStudents.Remove(DelStu);
             s_context.SaveChanges();
 
-            return RedirectToAction("Index","Student");
+            return RedirectToAction("Index", "Student");
         }
 
         // POST: Student/Delete/5
