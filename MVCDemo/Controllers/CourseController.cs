@@ -76,6 +76,8 @@ namespace MVCDemo.Controllers
             var EditCourse = s_context.DbSetCourses.Where(i => i.CourseID == id).FirstOrDefault();
             return View(EditCourse);
         }
+
+
         [HttpPost]
         public ActionResult Edit(Course course, int id)
         {
@@ -108,8 +110,6 @@ namespace MVCDemo.Controllers
             }
 
         }
-
-
 
 
         public ActionResult Details(int id)
