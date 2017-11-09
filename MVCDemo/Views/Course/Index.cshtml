@@ -29,11 +29,16 @@
             @Html.DisplayFor(modelItem => item.Capacity)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CourseID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CourseID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CourseID })
+            @Html.ActionLink("Edit", "Edit","Course",null,null,null, 
+                                    new { id=item.CourseID }, new { @class = "btn btn-primary btn-large btn-custom" } ) 
+            @Html.ActionLink("Details", "Details", "Course", null, null, null, 
+                                    new { id = item.CourseID }, new { @class = "btn btn-primary btn-large btn-custom" })
+            @Html.ActionLink("Delete", "Delete", "Course", null, null, null, 
+                                    new { id = item.CourseID }, new { @class = "btn btn-danger btn-large btn-custom" })
+
         </td>
     </tr>
 }
 
 </table>
+

@@ -22,10 +22,34 @@ select,
 textarea {
     max-width: 280px;
 }
-/*table {
-background-color:burlywood;
-}
-btn {
-background-color:darkgray;
 
-}*/
+
+
+/**//**//**//**//**//**//**//**//**//**//**//**/
+.btn {
+border-radius: 0px 0px;
+
+}
+.btn-primary {
+    background-color:aliceblue;
+    border-color:deepskyblue;
+    color:black;
+}
+.btn-danger {
+    background-color:indianred;
+    border-color:indianred;
+}
+
+
+
+/**//**//*HOVERS*//**//**//**//**/
+.btn-primary:hover {
+    background-color: deepskyblue;
+    transition-duration:0.1s;
+    transition-timing-function:cubic-bezier();
+}
+
+.btn-danger:hover {
+
+   animation-direction:reverse;
+}

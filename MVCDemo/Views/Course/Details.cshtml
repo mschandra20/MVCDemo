@@ -1,0 +1,62 @@
+﻿@model MVCDemo.Models.Course
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseNumber)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Capacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Capacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Enrolled)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Enrolled)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnEnrolled)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnEnrolled)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.CourseID }) |*@
+    @Html.ActionLink("Edit Course Details","Edit", "Course", null, new { @class = "btn btn-primary btn-large" })
+    
+    @*@Html.ActionLink("Edit Course Details", "Edit", "Course", null, new { @class = "btn btn-primary btn-large" })*@
+    @Html.ActionLink("Back to List", "Index","Course",null, new { @class="btn btn-primary btn-medium"})
+</p>

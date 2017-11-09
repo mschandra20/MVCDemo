@@ -68,5 +68,14 @@ namespace MVCDemo.Controllers
             }
 
         }
+
+
+        public ActionResult Details(int id)
+        {
+            StudentContext s_context = new StudentContext();
+           var CourseDetails= s_context.DbSetCourses.Single(s => s.CourseID == id);
+
+            return View(CourseDetails);
+        }
     }
 }
