@@ -24,8 +24,10 @@ textarea {
 }
 
 
-
+/*CUSTOM STYLES*/
 /**//**//**//**//**//**//**//**//**//**//**//**/
+
+/*BUTTONS*/
 .btn {
 border-radius: 0px 0px;
 
@@ -38,6 +40,7 @@ border-radius: 0px 0px;
 .btn-danger {
     background-color: white;/*rgba(189, 135, 135, 0.73);*/
     border-color: white;
+    /*border-left-color:red;*/
     color:black;
 }
 
@@ -45,11 +48,11 @@ border-radius: 0px 0px;
 
 /**//**//*HOVERS*//**//**//**//**/
 .btn-primary:hover {
-    border-left-color:deepskyblue;
-    border-right-color: deepskyblue;
-    border-top-color: deepskyblue;
-    border-bottom-color: midnightblue;
-    background-color: deepskyblue;
+    border-left-color: #249daf;
+    border-right-color: #249daf;
+    border-top-color: #249daf;
+    border-bottom-color:deepskyblue;
+    background-color: #249daf;
     transition-duration: 0.2s;
     transition-timing-function: cubic-bezier();
 }
@@ -57,5 +60,22 @@ border-radius: 0px 0px;
 .btn-danger:hover {
 
    animation-direction:reverse;
+
+}
+
+.navbar-inverse {
+    background-color: #249daf;
+    border-color: deepskyblue;
+}
+.navbar-inverse .navbar-brand {
+    color: #060606;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #060606;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: white;
+    background-color:deepskyblue;
 
 }
