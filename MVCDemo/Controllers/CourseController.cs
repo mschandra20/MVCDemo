@@ -69,6 +69,48 @@ namespace MVCDemo.Controllers
 
         }
 
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            StudentContext s_context = new StudentContext();
+            var EditCourse = s_context.DbSetCourses.Where(i => i.CourseID == id).FirstOrDefault();
+            return View(EditCourse);
+        }
+        [HttpPost]
+        public ActionResult Edit(Course course, int id)
+        {
+            Course c;
+            if (ModelState.IsValid)
+            {
+                //This is to get the record from the context
+                using (StudentContext s_context = new StudentContext())
+                {
+                    c = s_context.DbSetCourses.Where(i => i.CourseID == id).FirstOrDefault();
+                }
+                if (c != null)
+                {
+                    c.Name = course.Name;
+                    c.Capacity = course.Capacity;
+
+                }
+
+                //Updating in the DB
+                using (StudentContext sDB_context = new StudentContext())
+                {
+                    sDB_context.Entry(c).State=System.Data.Entity.EntityState.Modified;
+                    sDB_context.SaveChanges();
+                }
+                return RedirectToActionPermanent("Index", "Course");
+            }
+            else
+            {
+                return View();
+            }
+
+        }
+
+
+
 
         public ActionResult Details(int id)
         {
