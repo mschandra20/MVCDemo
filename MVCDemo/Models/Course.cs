@@ -33,7 +33,8 @@ namespace MVCDemo.Models
         public sbyte _UnEnrolled
         { get { return (sbyte)UnEnrolled; } set { UnEnrolled = (int)value; } }
 
-
+        [ForeignKey("StudentList")]
+        public int StudentID { get; set; }
         //Navigation properties
         public IEnumerable<Student> StudentList { get; set; }
         

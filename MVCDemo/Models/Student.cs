@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MVCDemo.Models
 {
@@ -24,8 +25,8 @@ namespace MVCDemo.Models
         [Required]
         public DateTime DateOfBirth { get; set; }
 
-
-        public int Course { get; set; }
+        [ForeignKey("CourseList")]
+        public int CourseID { get; set; }
         //Navigation properties
         public IEnumerable<Course> CourseList { get; set; }
 
