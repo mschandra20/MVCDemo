@@ -29,10 +29,11 @@ namespace MVCDemo.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            StudentContext s_context = new StudentContext();
-            var CourseList = s_context.DbSetCourses.ToList();
+            //StudentContext s_context = new StudentContext();
+            //var CourseList = s_context.DbSetCourses.ToList();
 
-            return View(CourseList);
+            //return View(CourseList);
+            return View();
         }
 
         // POST: Student/Create
@@ -146,11 +147,10 @@ namespace MVCDemo.Controllers
             StudentContext s_context = new StudentContext();
             var EnrollStudent= s_context.DbSetStudents.SingleOrDefault(i => i.StudentID == id);
 
-
-
-            return  View(EnrollStudent);
+            return  RedirectToAction("CList","Course",EnrollStudent);
             
         }
 
+        
     }
 }

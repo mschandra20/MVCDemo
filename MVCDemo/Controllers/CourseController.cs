@@ -129,5 +129,25 @@ namespace MVCDemo.Controllers
 
             return RedirectToAction("Index","Course");
         }
+
+
+
+
+        public ActionResult CList()
+        {
+            StudentContext s = new StudentContext();
+            return View(s.DbSetCourses.ToList());
+
+        }
+
+        [HttpPost]
+        public ActionResult Enroll(int id)
+        {
+            StudentContext s_context = new StudentContext();
+            var stu=s_context.DbSetStudents.Where(i => i.StudentID == id).FirstOrDefault();
+            //s_context.DbSetCourses.Where(l => l.StudentList.Any(i => i.StudentID != id));
+                
+            return View();
+        }
     }
 }
