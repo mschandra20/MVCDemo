@@ -8,12 +8,28 @@ namespace MVCDemo.Controllers
     public class StudentController : Controller
     {
         // GET: Student
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    StudentContext s_context = new StudentContext();
+        //    var ListOfStudents = s_context.DbSetStudents.ToList();
+
+        //    return View(ListOfStudents);
+        //}
+
+
+        //Get method for both index and search
+        public ActionResult Index(string SearchName)
         {
             StudentContext s_context = new StudentContext();
-            var ListOfStudents = s_context.DbSetStudents.ToList();
+            var students = from s in s_context.DbSetStudents
+                         select s;
 
-            return View(ListOfStudents);
+            if (!String.IsNullOrEmpty(SearchName))
+            {
+                students = students.Where(s => s.Name.Contains(SearchName));
+            }
+
+            return View(students);
         }
 
         // GET: Student/Details/5
@@ -115,24 +131,29 @@ namespace MVCDemo.Controllers
         }
 
         // GET: Student/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete()
         {
-            StudentContext s_context = new StudentContext();
+            //StudentContext s_context = new StudentContext();
 
-            var DelStu = s_context.DbSetStudents.SingleOrDefault(x => x.StudentID == id);
-            s_context.DbSetStudents.Remove(DelStu);
-            s_context.SaveChanges();
+            //var DelStu = s_context.DbSetStudents.SingleOrDefault(x => x.StudentID == id);
+            //s_context.DbSetStudents.Remove(DelStu);
+            //s_context.SaveChanges();
 
             return RedirectToAction("Index", "Student");
         }
 
         // POST: Student/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id)
         {
             try
             {
                 // TODO: Add delete logic here
+                StudentContext s_context = new StudentContext();
+
+                var DelStu = s_context.DbSetStudents.SingleOrDefault(x => x.StudentID == id);
+                s_context.DbSetStudents.Remove(DelStu);
+                s_context.SaveChanges();
 
                 return RedirectToAction("Index");
             }

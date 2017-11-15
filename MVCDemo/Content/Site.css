@@ -49,9 +49,7 @@ border-radius: 1px 1px;
 }
 /**/ /**/ /*HOVERS*/ /**/ /**/ /**/ /**/
 .btn-primary:hover {
-    /*border-left-color: #249daf;
-    border-right-color: #249daf;
-    border-top-color: #249daf;*/
+    
     border-bottom:1px solid deepskyblue;
     background-color: #249daf;
     transition-duration: 0.2s;
@@ -73,22 +71,27 @@ transition-duration:0.1s;
 }*/
 
 .navbar-inverse {
-    background-color: #249daf;
+    background-color:#249daf;
     border-color: deepskyblue;
 }
+
 .navbar-inverse .navbar-brand {
     color: #060606;
 }
+
 .navbar-inverse .navbar-nav > li > a {
     color: #060606;
 }
 
+
 .navbar-inverse .navbar-nav > li > a:hover {
     color: white;
-    background-color:deepskyblue;
-
+    background-color: deepskyblue;
 }
-.menthus {
-font-weight:bolder;
 
+.menthus {
+    font-weight:bolder;
+}
+.form-inline {
+display:inline;
 }
