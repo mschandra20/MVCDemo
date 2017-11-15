@@ -10,6 +10,7 @@ namespace MVCDemo.Models
         public int StudentID { get; set; }
 
         //[Key]
+        //[Index(IsUnique=true)]
         [Display(Name = "Enrollement Number")]
         public int EnrollmentID { get; set; }
 

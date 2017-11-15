@@ -26,7 +26,6 @@
         <th colspan="10">
             @Html.DisplayNameFor(model => model.Name)
         </th>
-        
     </tr>
 
     @foreach (var item in Model)
@@ -69,12 +68,10 @@
                                 , new { @class = "btn btn-primary btn-large btn-custom" })
 
             </td>
-
         </tr>
-       
-
      }
     
-
 </table>
-@Html.ActionLink("Create New", "Create", "Student", null, new { @class = "btn btn-primary btn-save" })
+<p>
+    @Html.ActionLink("Create New", "Create", "Student", null, new { @class = "btn btn-primary btn-save" })
+</p>

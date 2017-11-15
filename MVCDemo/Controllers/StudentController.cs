@@ -169,9 +169,14 @@ namespace MVCDemo.Controllers
         public ActionResult Enroll(int id)
         {
             StudentContext s_context = new StudentContext();
+            //var CourseList = from c in s_context.DbSetStudents
+            //                 orderby c.Name
+            //                 select c;
+                           
             var EnrollStudent= s_context.DbSetStudents.SingleOrDefault(i => i.StudentID == id);
 
-            return  RedirectToAction("CList","Course",EnrollStudent);
+            //return View(CourseList); 
+                return RedirectToAction("CList","Course",EnrollStudent);
             
         }
 

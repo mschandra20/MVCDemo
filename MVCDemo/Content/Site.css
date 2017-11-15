@@ -70,6 +70,15 @@ margin-bottom:6px;
 transition-duration:0.1s;
 }*/
 
+.form-control{
+    border-radius: 1px 1px;
+    box-shadow:100px;
+}
+
+.form-control:focus{
+    border-color: #249daf;
+}
+
 .navbar-inverse {
     background-color:#249daf;
     border-color: deepskyblue;

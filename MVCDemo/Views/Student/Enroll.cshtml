@@ -50,13 +50,13 @@
             @Html.DisplayFor(model => model.DateOfBirth)
         </dd>
 
-        @*<dt>
-            @Html.DisplayNameFor(model => model.Course)
+        <dt>
+            @Html.DisplayNameFor(model => model.course)
         </dt>
 
         <dd>
-            @Html.DropDownListFor(m=>m.Course,new SelectList(Model.CourseList,"CourseID","Name"))
-        </dd>*@
+            @Html.DropDownList("CourseList","All"))
+        </dd>
 
     </dl>
 </div>
