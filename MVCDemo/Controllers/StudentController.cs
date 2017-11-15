@@ -76,6 +76,9 @@ namespace MVCDemo.Controllers
         }
 
         // POST: Student/Edit/5
+        //The Bind attribute is another important security mechanism 
+        //that keeps hackers from over-posting data to your model. 
+        //You should only include properties in the bind attribute that you want to change. 
         [HttpPost]
         public ActionResult Edit([Bind(Include = "EnrollmentID,Name,Address,Contact,DateOfBirth")] Student student, int id)
         {

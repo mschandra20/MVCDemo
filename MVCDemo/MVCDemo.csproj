@@ -182,6 +182,10 @@
     <Compile Include="Migrations\201711092152065_AddedDropdownForCourse.Designer.cs">
       <DependentUpon>201711092152065_AddedDropdownForCourse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711150512549_RemovedProperties.cs" />
+    <Compile Include="Migrations\201711150512549_RemovedProperties.Designer.cs">
+      <DependentUpon>201711150512549_RemovedProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Student.cs" />
@@ -273,6 +277,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711092152065_AddedDropdownForCourse.resx">
       <DependentUpon>201711092152065_AddedDropdownForCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711150512549_RemovedProperties.resx">
+      <DependentUpon>201711150512549_RemovedProperties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MVCDemo.Models
 {
@@ -11,6 +10,7 @@ namespace MVCDemo.Models
         public int StudentID { get; set; }
 
         //[Key]
+        [Display(Name = "Enrollement Number")]
         public int EnrollmentID { get; set; }
 
         [Required]
@@ -23,12 +23,19 @@ namespace MVCDemo.Models
         public string Contact { get; set; }
 
         [Required]
+        [Display(Name = "Date of Birth")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateOfBirth { get; set; }
 
-        [ForeignKey("CourseList")]
-        public int CourseID { get; set; }
+      
+
         //Navigation properties
-        public IEnumerable<Course> CourseList { get; set; }
+
+        //public int CourseID { get; set; }
+
+        //[Required]
+        public IEnumerable<Course> course { get; set; }
 
     }
 }

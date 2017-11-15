@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MVCDemo.Models
 {
     public class Course
     {
+        [Required]
         public int CourseID { get; set; }
 
         [Required]
@@ -21,6 +21,11 @@ namespace MVCDemo.Models
         public int Enrolled { get; set; }
         public int UnEnrolled { get; set; }
 
+
+        #region Notmapped Properties
+
+        //These not mapped entities are for usng sbyte in our application but as DB does not consist 
+        //a datatype for the sbyte we convert it to int
         [NotMapped]
         public sbyte _Capacity
         { get { return (sbyte)Capacity; } set { Capacity = value; } }
@@ -33,10 +38,17 @@ namespace MVCDemo.Models
         public sbyte _UnEnrolled
         { get { return (sbyte)UnEnrolled; } set { UnEnrolled = (int)value; } }
 
-        [ForeignKey("StudentList")]
-        public int StudentID { get; set; }
+        #endregion
+
+
+
         //Navigation properties
-        public IEnumerable<Student> StudentList { get; set; }
+
+       
+       // public int StudentID { get; set; }
+
+        //[Key,ForeignKey("course")]
+        public Student Student { get; set; }
         
     }
 }
