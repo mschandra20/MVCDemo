@@ -8,11 +8,18 @@ namespace MVCDemo.Controllers
     public class CourseController : Controller
     {
         // GET: Course
-        public ActionResult Index()
+        public ActionResult Index(string SearchName)
         {
             StudentContext s_context = new StudentContext();
-            var c=s_context.DbSetCourses.ToList();
-            return View(c);
+            var courses= from c in s_context.DbSetCourses
+                           select c;
+
+            if (!String.IsNullOrEmpty(SearchName))
+            {
+                courses = courses.Where(s => s.Name.Contains(SearchName));
+            }
+
+            return View(courses);
         }
 
         [HttpGet]

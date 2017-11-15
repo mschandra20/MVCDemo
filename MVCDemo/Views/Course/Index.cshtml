@@ -4,11 +4,20 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 style="margin-bottom:30px;"> List of Courses</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create","Course",null,new { @class="btn btn-primary btn-save"})
-</p>
+@using (Html.BeginForm("Index","Course", FormMethod.Get))
+{
+    <div style="margin-bottom:20px;">
+
+        <strong>Search Course</strong>
+        @Html.TextBox("SearchName", null, htmlAttributes: new { @class = "form-control form-inline" })
+
+        <input type="submit" value="Filter" class="btn btn-primary btn-save" />
+    </div>
+}
+
+
 <table class="table">
     <tr>
         <th>
@@ -31,8 +40,10 @@
         <td>
             @Html.ActionLink("Edit", "Edit","Course",null,null,null, 
                                     new { id=item.CourseID }, new { @class = "btn btn-primary btn-large btn-custom" } ) 
+            
             @Html.ActionLink("Details", "Details", "Course", null, null, null, 
                                     new { id = item.CourseID }, new { @class = "btn btn-primary btn-large btn-custom" })
+            
             @Html.ActionLink("Delete", "Delete", "Course", null, null, null, 
                                     new { id = item.CourseID }, new { @class = "btn btn-danger btn-large btn-custom" })
 
@@ -41,4 +52,6 @@
 }
 
 </table>
-
+<p>
+    @Html.ActionLink("Create New", "Create", "Course", null, new { @class = "btn btn-primary btn-save" })
+</p>
