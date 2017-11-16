@@ -6,7 +6,7 @@ namespace MVCDemo.Controllers
     {
         public ActionResult Index()
         {
-            //StudentContext s_context = new StudentContext();
+            //Context s_context = new Context();
 
             //var c= s_context.DbSetCourses.Add(
             //    new Course { Capacity = 100, CourseID = 10254, Name = "Programming" });

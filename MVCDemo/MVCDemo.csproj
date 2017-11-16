@@ -158,36 +158,17 @@
     <Compile Include="Migrations\201711062214018_InitialCreate.Designer.cs">
       <DependentUpon>201711062214018_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711071656130_AddedEnrollemntIDforStudent.cs" />
-    <Compile Include="Migrations\201711071656130_AddedEnrollemntIDforStudent.Designer.cs">
-      <DependentUpon>201711071656130_AddedEnrollemntIDforStudent.cs</DependentUpon>
+    <Compile Include="Migrations\201711162038377_AddedEnrollemntModelAndChangedExistingModels.cs" />
+    <Compile Include="Migrations\201711162038377_AddedEnrollemntModelAndChangedExistingModels.Designer.cs">
+      <DependentUpon>201711162038377_AddedEnrollemntModelAndChangedExistingModels.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711081947323_AddedCourseNumber.cs" />
-    <Compile Include="Migrations\201711081947323_AddedCourseNumber.Designer.cs">
-      <DependentUpon>201711081947323_AddedCourseNumber.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711082236235_AddedEnrollments.cs" />
-    <Compile Include="Migrations\201711082236235_AddedEnrollments.Designer.cs">
-      <DependentUpon>201711082236235_AddedEnrollments.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711082238424_AddedEnrollments1.cs" />
-    <Compile Include="Migrations\201711082238424_AddedEnrollments1.Designer.cs">
-      <DependentUpon>201711082238424_AddedEnrollments1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711090502566_DataAnnotationsAdded.cs" />
-    <Compile Include="Migrations\201711090502566_DataAnnotationsAdded.Designer.cs">
-      <DependentUpon>201711090502566_DataAnnotationsAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711092152065_AddedDropdownForCourse.cs" />
-    <Compile Include="Migrations\201711092152065_AddedDropdownForCourse.Designer.cs">
-      <DependentUpon>201711092152065_AddedDropdownForCourse.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711150512549_RemovedProperties.cs" />
-    <Compile Include="Migrations\201711150512549_RemovedProperties.Designer.cs">
-      <DependentUpon>201711150512549_RemovedProperties.cs</DependentUpon>
+    <Compile Include="Migrations\201711162047518_RemovedRequired.cs" />
+    <Compile Include="Migrations\201711162047518_RemovedRequired.Designer.cs">
+      <DependentUpon>201711162047518_RemovedRequired.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Enrollment.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudentContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -260,26 +241,11 @@
     <EmbeddedResource Include="Migrations\201711062214018_InitialCreate.resx">
       <DependentUpon>201711062214018_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711071656130_AddedEnrollemntIDforStudent.resx">
-      <DependentUpon>201711071656130_AddedEnrollemntIDforStudent.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711162038377_AddedEnrollemntModelAndChangedExistingModels.resx">
+      <DependentUpon>201711162038377_AddedEnrollemntModelAndChangedExistingModels.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711081947323_AddedCourseNumber.resx">
-      <DependentUpon>201711081947323_AddedCourseNumber.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711082236235_AddedEnrollments.resx">
-      <DependentUpon>201711082236235_AddedEnrollments.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711082238424_AddedEnrollments1.resx">
-      <DependentUpon>201711082238424_AddedEnrollments1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711090502566_DataAnnotationsAdded.resx">
-      <DependentUpon>201711090502566_DataAnnotationsAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711092152065_AddedDropdownForCourse.resx">
-      <DependentUpon>201711092152065_AddedDropdownForCourse.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711150512549_RemovedProperties.resx">
-      <DependentUpon>201711150512549_RemovedProperties.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711162047518_RemovedRequired.resx">
+      <DependentUpon>201711162047518_RemovedRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

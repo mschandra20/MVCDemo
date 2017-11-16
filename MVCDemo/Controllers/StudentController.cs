@@ -10,7 +10,7 @@ namespace MVCDemo.Controllers
         // GET: Student
         //public ActionResult Index()
         //{
-        //    StudentContext s_context = new StudentContext();
+        //    Context s_context = new Context();
         //    var ListOfStudents = s_context.DbSetStudents.ToList();
 
         //    return View(ListOfStudents);
@@ -20,7 +20,7 @@ namespace MVCDemo.Controllers
         //Get method for both index and search
         public ActionResult Index(string SearchName)
         {
-            StudentContext s_context = new StudentContext();
+            Context s_context = new Context();
             var students = from s in s_context.DbSetStudents
                          select s;
 
@@ -35,7 +35,7 @@ namespace MVCDemo.Controllers
         // GET: Student/Details/5
         public ActionResult Details(int id)
         {
-            StudentContext s_context = new StudentContext();
+            Context s_context = new Context();
             var StudentDetails = s_context.DbSetStudents.SingleOrDefault(s => s.StudentID == id);
 
             return View(StudentDetails);
@@ -45,7 +45,7 @@ namespace MVCDemo.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            //StudentContext s_context = new StudentContext();
+            //Context s_context = new Context();
             //var CourseList = s_context.DbSetCourses.ToList();
 
             //return View(CourseList);
@@ -59,7 +59,7 @@ namespace MVCDemo.Controllers
             try
             {
                 // TODO: Add insert logic here
-                StudentContext s_context = new StudentContext();
+                Context s_context = new Context();
                 s_context.DbSetStudents.Add(
                 new Student
                 {
@@ -67,7 +67,7 @@ namespace MVCDemo.Controllers
                     Address = student.Address,
                     Contact = student.Contact,
                     DateOfBirth = student.DateOfBirth,
-                    EnrollmentID = new Random().Next(100001, 199999)
+                    EnrollmentNumber = new Random().Next(100001, 199999)
 
                 });
 
@@ -85,7 +85,7 @@ namespace MVCDemo.Controllers
         // GET: Student/Edit/5
         public ActionResult Edit(int id)
         {
-            StudentContext s_context = new StudentContext();
+            Context s_context = new Context();
             var StudentDetails = s_context.DbSetStudents.SingleOrDefault(s => s.StudentID == id);
 
             return View(StudentDetails);
@@ -96,27 +96,27 @@ namespace MVCDemo.Controllers
         //that keeps hackers from over-posting data to your model. 
         //You should only include properties in the bind attribute that you want to change. 
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "EnrollmentID,Name,Address,Contact,DateOfBirth")] Student student, int id)
+        public ActionResult Edit([Bind(Include = "EnrollmentNumber,Name,Address,Contact,DateOfBirth")] Student student, int id)
         {
             if (ModelState.IsValid)
             {
                 Student stu;
                 // TODO: Add update logic here
-                using (StudentContext s_context = new StudentContext())
+                using (Context s_context = new Context())
                 {
                     stu = s_context.DbSetStudents.Where(s => s.StudentID == id).FirstOrDefault<Student>();
                 }
 
                 if (stu != null)
                 {
-                    stu.EnrollmentID = student.EnrollmentID;
+                    stu.EnrollmentNumber = student.EnrollmentNumber;
                     stu.Name = student.Name;
                     stu.Address = student.Address;
                     stu.Contact = student.Contact;
                     stu.DateOfBirth = student.DateOfBirth;
                 }
 
-                using (StudentContext sDB_context = new StudentContext())
+                using (Context sDB_context = new Context())
                 {
                     sDB_context.Entry(stu).State = EntityState.Modified;
                     sDB_context.SaveChanges();
@@ -133,7 +133,7 @@ namespace MVCDemo.Controllers
         // GET: Student/Delete/5
         public ActionResult Delete()
         {
-            //StudentContext s_context = new StudentContext();
+            //Context s_context = new Context();
 
             //var DelStu = s_context.DbSetStudents.SingleOrDefault(x => x.StudentID == id);
             //s_context.DbSetStudents.Remove(DelStu);
@@ -149,7 +149,7 @@ namespace MVCDemo.Controllers
             try
             {
                 // TODO: Add delete logic here
-                StudentContext s_context = new StudentContext();
+                Context s_context = new Context();
 
                 var DelStu = s_context.DbSetStudents.SingleOrDefault(x => x.StudentID == id);
                 s_context.DbSetStudents.Remove(DelStu);
@@ -168,7 +168,7 @@ namespace MVCDemo.Controllers
         [HttpGet]
         public ActionResult Enroll(int id)
         {
-            StudentContext s_context = new StudentContext();
+            Context s_context = new Context();
             //var CourseList = from c in s_context.DbSetStudents
             //                 orderby c.Name
             //                 select c;

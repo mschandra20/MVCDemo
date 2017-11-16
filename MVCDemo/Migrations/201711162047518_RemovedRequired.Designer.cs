@@ -7,18 +7,18 @@ namespace MVCDemo.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddedEnrollemntIDforStudent : IMigrationMetadata
+    public sealed partial class RemovedRequired : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedEnrollemntIDforStudent));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(RemovedRequired));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711071656130_AddedEnrollemntIDforStudent"; }
+            get { return "201711162047518_RemovedRequired"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return null; }
+            get { return Resources.GetString("Source"); }
         }
         
         string IMigrationMetadata.Target

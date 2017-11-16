@@ -7,13 +7,13 @@ namespace MVCDemo.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddedCourseNumber : IMigrationMetadata
+    public sealed partial class AddedEnrollemntModelAndChangedExistingModels : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedCourseNumber));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedEnrollemntModelAndChangedExistingModels));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711081947323_AddedCourseNumber"; }
+            get { return "201711162038377_AddedEnrollemntModelAndChangedExistingModels"; }
         }
         
         string IMigrationMetadata.Source

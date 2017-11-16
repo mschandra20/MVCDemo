@@ -4,15 +4,18 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MVCDemo.Models
 {
+    /// <summary>
+    /// This class has information about the student and enrollements of this student
+    /// </summary>
     public class Student
     {
-        //[Key]
+        [Key]
         public int StudentID { get; set; }
 
-        //[Key]
-        //[Index(IsUnique=true)]
+        
         [Display(Name = "Enrollement Number")]
-        public int EnrollmentID { get; set; }
+        [Required]
+        public int EnrollmentNumber { get; set; }
 
         [Required]
         public string Name { get; set; }
@@ -21,6 +24,9 @@ namespace MVCDemo.Models
         public string Address { get; set; }
 
         [Required]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number")]
+        [Display(Name ="Phone Number")]
         public string Contact { get; set; }
 
         [Required]
@@ -32,11 +38,10 @@ namespace MVCDemo.Models
       
 
         //Navigation properties
+        //[ForeignKey("enrollment")]
+        //public int EnrollmentID { get; set; }
 
-        //public int CourseID { get; set; }
-
-        //[Required]
-        public IEnumerable<Course> course { get; set; }
+        public IEnumerable<Enrollment> enrollment{ get; set; }
 
     }
 }

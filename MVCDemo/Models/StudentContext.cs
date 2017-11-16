@@ -3,15 +3,15 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace MVCDemo.Models
 {
-    public class StudentContext:DbContext
+    public class Context:DbContext
     {
-        public StudentContext() : base("MVCDemoDBCS")
+        public Context() : base("MVCDemoDBCS")
         {
 
         }
         public DbSet<Course> DbSetCourses { get; set; }
         public DbSet<Student> DbSetStudents { get; set; }
-
+        public DbSet<Enrollment> DbSetEnrollments { get; set; }
 
 
         //FLUENT API to override the conventions
