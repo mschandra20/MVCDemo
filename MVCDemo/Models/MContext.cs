@@ -3,9 +3,9 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace MVCDemo.Models
 {
-    public class Context:DbContext
+    public class MContext:DbContext
     {
-        public Context() : base("MVCDemoDBCS")
+        public MContext() : base("MVCDemoDBCS")
         {
 
         }

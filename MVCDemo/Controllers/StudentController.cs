@@ -10,7 +10,7 @@ namespace MVCDemo.Controllers
         // GET: Student
         //public ActionResult Index()
         //{
-        //    Context s_context = new Context();
+        //    MContext s_context = new MContext();
         //    var ListOfStudents = s_context.DbSetStudents.ToList();
 
         //    return View(ListOfStudents);
@@ -20,7 +20,7 @@ namespace MVCDemo.Controllers
         //Get method for both index and search
         public ActionResult Index(string SearchName)
         {
-            Context s_context = new Context();
+            MContext s_context = new MContext();
             var students = from s in s_context.DbSetStudents
                          select s;
 
@@ -35,7 +35,7 @@ namespace MVCDemo.Controllers
         // GET: Student/Details/5
         public ActionResult Details(int id)
         {
-            Context s_context = new Context();
+            MContext s_context = new MContext();
             var StudentDetails = s_context.DbSetStudents.SingleOrDefault(s => s.StudentID == id);
 
             return View(StudentDetails);
@@ -45,7 +45,7 @@ namespace MVCDemo.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            //Context s_context = new Context();
+            //MContext s_context = new MContext();
             //var CourseList = s_context.DbSetCourses.ToList();
 
             //return View(CourseList);
@@ -59,7 +59,7 @@ namespace MVCDemo.Controllers
             try
             {
                 // TODO: Add insert logic here
-                Context s_context = new Context();
+                MContext s_context = new MContext();
                 s_context.DbSetStudents.Add(
                 new Student
                 {
@@ -85,7 +85,7 @@ namespace MVCDemo.Controllers
         // GET: Student/Edit/5
         public ActionResult Edit(int id)
         {
-            Context s_context = new Context();
+            MContext s_context = new MContext();
             var StudentDetails = s_context.DbSetStudents.SingleOrDefault(s => s.StudentID == id);
 
             return View(StudentDetails);
@@ -102,7 +102,7 @@ namespace MVCDemo.Controllers
             {
                 Student stu;
                 // TODO: Add update logic here
-                using (Context s_context = new Context())
+                using (MContext s_context = new MContext())
                 {
                     stu = s_context.DbSetStudents.Where(s => s.StudentID == id).FirstOrDefault<Student>();
                 }
@@ -116,7 +116,7 @@ namespace MVCDemo.Controllers
                     stu.DateOfBirth = student.DateOfBirth;
                 }
 
-                using (Context sDB_context = new Context())
+                using (MContext sDB_context = new MContext())
                 {
                     sDB_context.Entry(stu).State = EntityState.Modified;
                     sDB_context.SaveChanges();
@@ -133,7 +133,7 @@ namespace MVCDemo.Controllers
         // GET: Student/Delete/5
         public ActionResult Delete()
         {
-            //Context s_context = new Context();
+            //MContext s_context = new MContext();
 
             //var DelStu = s_context.DbSetStudents.SingleOrDefault(x => x.StudentID == id);
             //s_context.DbSetStudents.Remove(DelStu);
@@ -149,7 +149,7 @@ namespace MVCDemo.Controllers
             try
             {
                 // TODO: Add delete logic here
-                Context s_context = new Context();
+                MContext s_context = new MContext();
 
                 var DelStu = s_context.DbSetStudents.SingleOrDefault(x => x.StudentID == id);
                 s_context.DbSetStudents.Remove(DelStu);
@@ -164,21 +164,11 @@ namespace MVCDemo.Controllers
         }
 
 
-
-        [HttpGet]
-        public ActionResult Enroll(int id)
-        {
-            Context s_context = new Context();
-            //var CourseList = from c in s_context.DbSetStudents
-            //                 orderby c.Name
-            //                 select c;
-                           
-            var EnrollStudent= s_context.DbSetStudents.SingleOrDefault(i => i.StudentID == id);
-
-            //return View(CourseList); 
-                return RedirectToAction("CList","Course",EnrollStudent);
-            
-        }
+        //[HttpGet]
+        //public ActionResult Enroll(int id)
+        //{
+           
+        //}
 
         
     }

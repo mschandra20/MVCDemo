@@ -1,0 +1,37 @@
+﻿@model MVCDemo.Models.Enrollment
+
+@using MVCDemo.Models
+
+@{
+    ViewBag.Title = "Enroll";
+
+}
+
+<h2>Enroll Student</h2>
+
+@using (Html.BeginForm())
+{
+    <div @*style="position:relative"*@>
+        
+        <div>
+            @Html.LabelFor(m=>m.student.EnrollmentNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(m=>m.student.EnrollmentNumber, new { htmlAttributes = new { @class = "form-control" } })
+
+
+            @Html.LabelFor(m => m.student.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(m => m.student.Name, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+
+        <div @*style="position:absolute; left:200px;"*@>
+            @Html.LabelFor(m => m.course.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.DropDownList("CourseList", ViewBag.CList as SelectList, "Select", htmlAttributes: new { @class = "form-control control-label col-md-2" })
+
+
+            @Html.LabelFor(m => m.course.CourseNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(m => m.course.CourseNumber, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+    </div>
+    
+}

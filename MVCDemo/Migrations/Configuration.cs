@@ -2,15 +2,15 @@ namespace MVCDemo.Migrations
 {
     using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<MVCDemo.Models.Context>
+    internal sealed class Configuration : DbMigrationsConfiguration<MVCDemo.Models.MContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "MVCDemo.Models.Context";
+            ContextKey = "MVCDemo.Models.MContext";
         }
 
-        protected override void Seed(MVCDemo.Models.Context context)
+        protected override void Seed(MVCDemo.Models.MContext context)
         {
             //  This method will be called after migrating to the latest version.
 

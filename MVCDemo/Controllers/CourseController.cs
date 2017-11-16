@@ -10,7 +10,7 @@ namespace MVCDemo.Controllers
         // GET: Course
         public ActionResult Index(string SearchName)
         {
-            Context s_context = new Context();
+            MContext s_context = new MContext();
             var courses= from c in s_context.DbSetCourses
                            select c;
 
@@ -33,7 +33,7 @@ namespace MVCDemo.Controllers
         {
             if (ModelState.IsValid)
             {
-                Context s_context = new Context();
+                MContext s_context = new MContext();
                 
                 int rnd = new Random().Next(4001, 4999);
                 if (s_context.DbSetCourses.Any(cn => cn.CourseNumber != rnd))
@@ -62,7 +62,7 @@ namespace MVCDemo.Controllers
                 s_context.SaveChanges();
                 
                 
-                //Context s_context = new Context();
+                //MContext s_context = new MContext();
                 //var c = s_context.DbSetCourses.SingleOrDefault(k => k.CourseID == id);
                 //s_context.DbSetCourses.Add(course);
                 //s_context.SaveChanges();
@@ -79,7 +79,7 @@ namespace MVCDemo.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            Context s_context = new Context();
+            MContext s_context = new MContext();
             var EditCourse = s_context.DbSetCourses.Where(i => i.CourseID == id).FirstOrDefault();
             return View(EditCourse);
         }
@@ -92,7 +92,7 @@ namespace MVCDemo.Controllers
             if (ModelState.IsValid)
             {
                 //This is to get the record from the context
-                using (Context s_context = new Context())
+                using (MContext s_context = new MContext())
                 {
                     c = s_context.DbSetCourses.Where(i => i.CourseID == id).FirstOrDefault();
                 }
@@ -104,7 +104,7 @@ namespace MVCDemo.Controllers
                 }
 
                 //Updating in the DB
-                using (Context sDB_context = new Context())
+                using (MContext sDB_context = new MContext())
                 {
                     sDB_context.Entry(c).State=System.Data.Entity.EntityState.Modified;
                     sDB_context.SaveChanges();
@@ -121,7 +121,7 @@ namespace MVCDemo.Controllers
 
         public ActionResult Details(int id)
         {
-            Context s_context = new Context();
+            MContext s_context = new MContext();
            var CourseDetails= s_context.DbSetCourses.Single(s => s.CourseID == id);
 
             return View(CourseDetails);
@@ -129,7 +129,7 @@ namespace MVCDemo.Controllers
 
         public ActionResult Delete(int id)
         {
-            Context s_context = new Context();
+            MContext s_context = new MContext();
             var DeleteCourse = s_context.DbSetCourses.Single(s => s.CourseID == id);
             s_context.DbSetCourses.Remove(DeleteCourse);
             s_context.SaveChanges();
@@ -140,21 +140,21 @@ namespace MVCDemo.Controllers
 
 
 
-        public ActionResult CList()
-        {
-            Context s = new Context();
-            return View(s.DbSetCourses.ToList());
+        //public ActionResult CList()
+        //{
+        //    MContext s = new MContext();
+        //    return View(s.DbSetCourses.ToList());
 
-        }
+        //}
 
-        [HttpPost]
-        public ActionResult Enroll(int id)
-        {
-            Context s_context = new Context();
-            var stu=s_context.DbSetStudents.Where(i => i.StudentID == id).FirstOrDefault();
-            //s_context.DbSetCourses.Where(l => l.StudentList.Any(i => i.StudentID != id));
+        //[HttpPost]
+        //public ActionResult Enroll(int id)
+        //{
+        //    MContext s_context = new MContext();
+        //    var stu=s_context.DbSetStudents.Where(i => i.StudentID == id).FirstOrDefault();
+        //    //s_context.DbSetCourses.Where(l => l.StudentList.Any(i => i.StudentID != id));
                 
-            return View();
-        }
+        //    return View();
+        //}
     }
 }
