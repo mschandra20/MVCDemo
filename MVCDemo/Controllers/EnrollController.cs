@@ -9,7 +9,7 @@ namespace MVCDemo.Controllers
     {
         // GET: Enroll
         [HttpGet]
-        public ActionResult Enroll (int id)
+        public ActionResult Enroll ()
         {
 
            // MContext s_context = new MContext();

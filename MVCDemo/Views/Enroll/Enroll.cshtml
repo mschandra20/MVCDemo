@@ -49,6 +49,7 @@
 
         </div>
         <div>
-            @Html.ActionLink("Cancel", "Index", "Student", new { @class = "btn btn-primary btn-save" })
+           @* @Html.ActionLink("Cancel", "Index", "Student", new { htmlAttributes = new { @class = "btn btn-primary btn-save" } } )*@
+            @Html.ActionLink("Cancel", "Index", "Student",null, new { @class = "btn btn-primary btn-save" })
         </div>
 }
