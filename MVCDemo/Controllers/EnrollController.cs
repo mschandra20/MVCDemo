@@ -11,13 +11,28 @@ namespace MVCDemo.Controllers
         [HttpGet]
         public ActionResult Enroll ()
         {
+            //Course Name List
+            MContext s_context = new MContext();
+            var CourseNameList = s_context.DbSetCourses.ToList();
+            SelectList CNamelist = new SelectList(CourseNameList, "CourseID", "Name");
+            ViewBag.CList = CNamelist;
 
-           // MContext s_context = new MContext();
-           // var CourseList = s_context.DbSetCourses.ToList();
-           // SelectList list = new SelectList(CourseList,"CourseID","Name");
-           // ViewBag.CList = list;
+            //Course Number List
+            var CourseNumberList = s_context.DbSetCourses.ToList();
+            SelectList CNumlist = new SelectList(CourseNumberList, "CourseID", "CourseNumber");
+            ViewBag.CNList = CNumlist;
 
-           //var s=s_context.DbSetEnrollments.FirstOrDefault(i => i.student.StudentID == id);
+            //var s = s_context.DbSetEnrollments.FirstOrDefault(i => i.student.StudentID == id);
+
+            //Student Name List
+            var StudentNameList = s_context.DbSetStudents.ToList();
+            SelectList SNamelist = new SelectList(StudentNameList, "StudentID", "EnrollmentNumber");
+            ViewBag.SList = SNamelist;
+
+            //Student Number List
+            var StudentNumberList = s_context.DbSetStudents.ToList();
+            SelectList SNumlist = new SelectList(StudentNumberList, "StudentID", "Name");
+            ViewBag.SNList = SNumlist;
 
             return View();
         }

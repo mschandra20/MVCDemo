@@ -12,44 +12,71 @@
 @using (Html.BeginForm())
 {
 
-        <div class="form-horizontal">
-            <div class="form-group">
-                @Html.LabelFor(m => m.student.EnrollmentNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                   @Html.EditorFor(m => m.student.EnrollmentNumber, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.student.Name, htmlAttributes: new { @class = " control-label col-md-2" })
-                <div class="col-md-10">
-                   @Html.EditorFor(m => m.student.Name, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
+    <div class="form-horizontal">
 
-            <div class="form-group">
-                @Html.LabelFor(m => m.course.Name,htmlAttributes : new { @class = "control-label col-md-2" } )
-                <div class="col-md-10">
-                    @Html.EditorFor(m => m.student.Name, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.student.Name, htmlAttributes: new { @class = " control-label col-md-2" })
 
-            </div>
-            @*@Html.DropDownList("CourseList", ViewBag.CList as SelectList, "Select", htmlAttributes: new { @class = "form-control control-label col-md-2" })*@
-            <div class="form-group">
-                @Html.LabelFor(m => m.course.CourseNumber, htmlAttributes: new { @class = " control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(m => m.course.CourseNumber, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Enroll" class="btn btn-primary btn-save" />
-                </div>
+            <div class="col-md-10">
+                @*@Html.EditorFor(m => m.student.EnrollmentNumber, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownList(" StudentNumberList"
+                                   , ViewBag.SNList as SelectList
+                                   , "Select"
+                                   , htmlAttributes: new { @class = "form-control control-label col-md-2" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.student.EnrollmentNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+            <div class="col-md-10">
+                @*   @Html.EditorFor(m => m.student.Name, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownList(" StudentNameList"
+                                   , ViewBag.SList as SelectList
+                                   , "Select"
+                                   , htmlAttributes: new { @class = "form-control control-label col-md-2" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.course.CourseNumber, htmlAttributes: new { @class = " control-label col-md-2" })
+
+
+            <div class="col-md-10">
+                @*@Html.EditorFor(m => m.course.CourseNumber, new { htmlAttributes = new { @class = "form-control" } })*@
+
+                @Html.DropDownList(" CourseNumberList"
+                                   , ViewBag.CNList as SelectList
+                                   , "Select"
+                                   , htmlAttributes: new { @class = "form-control control-label col-md-2" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.course.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @* @Html.EditorFor(m => m.student.Name, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownList(" CourseNameList"
+                                   , ViewBag.CList as SelectList
+                                   , "Select"
+                                   , htmlAttributes: new { @class = "form-control control-label col-md-2" })
             </div>
 
         </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Enroll" class="btn btn-primary btn-save" />
+            </div>
+        </div>
+
+    </div>
         <div>
-           @* @Html.ActionLink("Cancel", "Index", "Student", new { htmlAttributes = new { @class = "btn btn-primary btn-save" } } )*@
-            @Html.ActionLink("Cancel", "Index", "Student",null, new { @class = "btn btn-primary btn-save" })
+            @* @Html.ActionLink("Cancel", "Index", "Student", new { htmlAttributes = new { @class = "btn btn-primary btn-save" } } )*@
+            @Html.ActionLink("Cancel", "Index", "Student", null, new { @class = "btn btn-primary btn-save" })
         </div>
 }
