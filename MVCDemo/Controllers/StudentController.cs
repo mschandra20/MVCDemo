@@ -12,7 +12,6 @@ namespace MVCDemo.Controllers
         //{
         //    MContext s_context = new MContext();
         //    var ListOfStudents = s_context.DbSetStudents.ToList();
-
         //    return View(ListOfStudents);
         //}
 

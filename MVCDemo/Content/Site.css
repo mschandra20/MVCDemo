@@ -1,8 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    
-
+   
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -31,78 +30,104 @@ textarea {
 
 /*BUTTONS*/
 .btn {
-border-radius: 1px 1px;
+    border-radius: 1px 1px;
+}
 
-}
 .btn-primary {
-    border:none;
-    background-color:white;
-    border-color:white;
-    color:black;
+    border: none;
+    background-color: white;
+    border-color: white;
+    color: black;
+    transition-duration:0.2s;
 }
+
+    .btn-primary:hover {
+        border-bottom: 1px solid deepskyblue;
+        background-color: #249daf;
+        transition-duration: 0.2s;
+        transition-timing-function: cubic-bezier();
+    }
+
+    .btn-primary:focus {
+        background-color: deepskyblue;
+    }
+
 .btn-danger {
     background-color: white;/*rgba(189, 135, 135, 0.73);*/
     border-color: white;
     /*border-left-color:red;*/
     color:black;
+    transition-duration:0.2s;
 }
-.btn-save {
-    border: 1px solid #249daf;
-}
-/**/ /**/ /*HOVERS*/ /**/ /**/ /**/ /**/
-.btn-primary:hover {
-    
-    border-bottom:1px solid deepskyblue;
-    background-color: #249daf;
-    transition-duration: 0.2s;
-    transition-timing-function: cubic-bezier();
-}
-.btn-primary:focus {
-    background-color:deepskyblue;
 
-}
 .btn-danger:hover {
 
    animation-direction:reverse;
 
+}.btn-save {
+    border: 1px solid #249daf;
 }
-
-/*.btn-save:hover {
-margin-bottom:6px;
-transition-duration:0.1s;
-}*/
 
 .form-control{
     border-radius: 1px 1px;
     box-shadow:100px;
 }
-
 .form-control:focus{
     border-color: #249daf;
 }
+.form-inline {
+display:inline;
+}
+
 
 .navbar-inverse {
-    background-color:#249daf;
-    border-color: deepskyblue;
+    background-color: black;
+    border-color: rgba(8, 8, 8, 0);
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+        border-color: transparent;
 }
 
 .navbar-inverse .navbar-brand {
-    color: #060606;
+    color: #249daf;
+    font-weight: bolder;
+    font-size: x-large;
 }
+    .navbar-inverse .navbar-brand:hover,
+    .navbar-inverse .navbar-brand:focus {
+        color: #1a7281;
+        background-color: transparent;
+        transition-duration:0.2s;
+    }
 
-.navbar-inverse .navbar-nav > li > a {
-    color: #060606;
-}
-
+    .navbar-inverse .navbar-nav > li > a {
+        color: #249daf;
+        font-weight: bolder;
+        font-size: small;
+        transition-duration: 0.3s;
+    }
 
 .navbar-inverse .navbar-nav > li > a:hover {
-    color: white;
-    background-color: deepskyblue;
+    opacity:0.8;
+    color:#249daf;
+    margin-top:10px;
+    border-top:3px solid #249daf;
+    transition-duration:0.3s;
 }
 
+.navbar-inverse .navbar-nav > li > a:focus {
+        
+    border-top: 3px solid #0e3940;
+    transition-duration: 0.1s;
+}
+
+.navbar-inverse .navbar-nav > li > a:after {
+    color: #249daf;
+    font-weight: bolder;
+    font-size: small;
+    transition-duration: 0.2s;
+}
 .menthus {
     font-weight:bolder;
-}
-.form-inline {
-display:inline;
 }
