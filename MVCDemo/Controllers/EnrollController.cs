@@ -26,12 +26,12 @@ namespace MVCDemo.Controllers
 
             //Student Name List
             var StudentNameList = s_context.DbSetStudents.ToList();
-            SelectList SNamelist = new SelectList(StudentNameList, "StudentID", "EnrollmentNumber");
+            SelectList SNamelist = new SelectList(StudentNameList, "StudentID", "Name");
             ViewBag.SList = SNamelist;
 
             //Student Number List
             var StudentNumberList = s_context.DbSetStudents.ToList();
-            SelectList SNumlist = new SelectList(StudentNumberList, "StudentID", "Name");
+            SelectList SNumlist = new SelectList(StudentNumberList, "StudentID", "EnrollmentNumber");
             ViewBag.SNList = SNumlist;
 
             return View();
