@@ -20,12 +20,26 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Students", "Index", "Student")</li>
-                    <li>@Html.ActionLink("Courses", "Index", "Course")</li>
-                    <li>@Html.ActionLink("Enroll", "Enroll", "Enroll")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Home" ? "active-field" : "")">
+                        @Html.ActionLink("Home", "Index", "Home")</li>
+
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Student" ? "active-field" : "")">
+                        @Html.ActionLink("Students", "Index", "Student")</li>
+                    
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Course" ? "active-field" : "")">
+                        @Html.ActionLink("Courses", "Index", "Course")</li>
+                    
+                    
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Enroll" ? "active-field" : "")">
+                        @Html.ActionLink("Enroll", "Enroll", "Enroll")</li>
+                    
+                    
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active-field" : "")">
+                        @Html.ActionLink("About", "About", "Home")</li>
+                    
+                    
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active-field" : "")">
+                        @Html.ActionLink("Contact", "Contact", "Home")</li>
 
 
                 </ul>

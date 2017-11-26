@@ -34,7 +34,10 @@ namespace MVCDemo.Controllers
             SelectList SNumlist = new SelectList(StudentNumberList, "StudentID", "EnrollmentNumber");
             ViewBag.SNList = SNumlist;
 
-            var s = GetStudent(enroll);
+            ////////////////////////////////////////////////////////////////////////////////////////
+
+            var sn = Convert.ToInt32(Request.Form["Enrollment Number"]);
+            var s = GetStudent(sn);
             Enrollment e = new Enrollment();
             e.student = s;
             return View(e);
@@ -63,13 +66,17 @@ namespace MVCDemo.Controllers
             return RedirectToAction("Index", "Student");
         }
 
-        
-        public Student GetStudent(FormCollection enroll)
+
+
+
+
+
+        public Student GetStudent(int sn)
         {
             MContext s_context = new MContext();
-            var sn  = Convert.ToInt32(Request.Form["Enrollment Number"]);
-            var sobj = s_context.DbSetStudents.First(x => x.EnrollmentNumber == sn);
-            var sid = sobj.StudentID;
+           // var sn  = Convert.ToInt32(Request.Form["Enrollment Number"]);
+            var sobj = s_context.DbSetStudents.FirstOrDefault(x => x.EnrollmentNumber == sn);
+            //var sid = sobj.StudentID;
 
 
             return sobj;

@@ -28,7 +28,15 @@ textarea {
 /*CUSTOM STYLES*/
 /**//**//**//**//**//**//**//**//**//**//**//**/
 
-/*BUTTONS*/
+
+.active-field {
+    opacity: 0.8;
+    color: deepskyblue;
+    margin-top: 5px;
+    border-top: 3px solid deepskyblue;
+}
+
+
 .btn {
     border-radius: 1px 1px;
 }
@@ -95,8 +103,9 @@ display:inline;
     font-weight: bolder;
     font-size: x-large;
 }
-    .navbar-inverse .navbar-brand:hover,
-    .navbar-inverse .navbar-brand:focus {
+    
+.navbar-inverse .navbar-brand:hover,
+ .navbar-inverse .navbar-brand:focus {
         color: #1a7281;
         background-color: transparent;
         transition-duration:0.2s;
