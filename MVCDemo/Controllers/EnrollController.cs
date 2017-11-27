@@ -48,21 +48,36 @@ namespace MVCDemo.Controllers
         public ActionResult Enroll_post(FormCollection enroll)
         {
             MContext s_context = new MContext();
-            var t = Convert.ToInt32(Request.Form["Course Number"]);
-            var u = Convert.ToInt32(Request.Form["Enrollement Number"]);
+            //Here we get the id of the student and course and we associate 
+            //them with the enrollment object
 
-            //var s = s_context.DbSetStudents.First(x => x.EnrollmentNumber == u);
-            //var c = s_context.DbSetCourses.First(x => x.CourseNumber == t);
+            var st = Convert.ToInt32(Request.Form[0]);//Student
 
-            var c = s_context.DbSetEnrollments.FirstOrDefault(x => x.course.CourseNumber == t);
-            var s = s_context.DbSetEnrollments.FirstOrDefault(x => x.student.EnrollmentNumber == u);
+            var co = Convert.ToInt32(Request.Form[1]);//Course
+
+
+            var c = s_context.DbSetCourses.SingleOrDefault(x => x.CourseID == co);
+            var s = s_context.DbSetStudents.SingleOrDefault(x => x.StudentID== st);
+
+            if (c != null )
+            {
+            RedirectToAction("Enroll", "Enroll");
+
+
+            }
+
+            if (s != null)
+            {
+                RedirectToAction("Enroll", "Enroll");
+
+            }
 
 
             s_context.DbSetEnrollments.Add(
                 new Enrollment
                 {
-                    CourseID = c.CourseID,
-                    StudentID = s.StudentID
+                    CourseID = co,
+                    StudentID = st
 
                 });
 
