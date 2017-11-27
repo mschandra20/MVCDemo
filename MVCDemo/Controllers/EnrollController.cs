@@ -51,8 +51,12 @@ namespace MVCDemo.Controllers
             var t = Convert.ToInt32(Request.Form["Course Number"]);
             var u = Convert.ToInt32(Request.Form["Enrollement Number"]);
 
-            var s = s_context.DbSetStudents.First(x => x.EnrollmentNumber == u);
-            var c = s_context.DbSetCourses.First(x => x.CourseNumber == t);
+            //var s = s_context.DbSetStudents.First(x => x.EnrollmentNumber == u);
+            //var c = s_context.DbSetCourses.First(x => x.CourseNumber == t);
+
+            var c = s_context.DbSetEnrollments.FirstOrDefault(x => x.course.CourseNumber == t);
+            var s = s_context.DbSetEnrollments.FirstOrDefault(x => x.student.EnrollmentNumber == u);
+
 
             s_context.DbSetEnrollments.Add(
                 new Enrollment

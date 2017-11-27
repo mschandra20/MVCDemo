@@ -50,7 +50,37 @@
             @Html.DisplayFor(model => model.DateOfBirth)
         </dd>
 
-    </dl>
+        <dt>
+            Enrollments
+           @* @Html.DisplayNameFor(model=>model.enrollment)*@
+        </dt>
+
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Course Title</th>
+                    <th>Grade</th>
+                </tr>
+                @foreach (var item in Model.enrollment)
+                 {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.course.Name)
+                        </td>
+                        <td>
+                           @* @Html.DisplayFor(modelItem => item.student.EnrollmentNumber)*@
+                        </td>
+                    </tr>
+                 }
+            </table>
+        </dd>
+
+
+
+
+
+
+</dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit","Student", new { id = Model.StudentID },new { @class="btn btn-primary btn-save"})

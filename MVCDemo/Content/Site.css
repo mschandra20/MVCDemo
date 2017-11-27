@@ -1,7 +1,6 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-   
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -26,16 +25,19 @@ textarea {
 
 
 /*CUSTOM STYLES*/
-/**//**//**//**//**//**//**//**//**//**//**//**/
+/**/ /**/ /**/ /**/ /**/ /**/ /**/ /**/ /**/ /**/ /**/ /**/
 
 
 .active-field {
-    opacity: 0.8;
     color: deepskyblue;
     margin-top: 5px;
     border-top: 3px solid deepskyblue;
 }
 
+    .active-field :hover {
+        color: deepskyblue;
+        border-top: 3px solid deepskyblue;
+    }
 
 .btn {
     border-radius: 1px 1px;
@@ -46,7 +48,7 @@ textarea {
     background-color: white;
     border-color: white;
     color: black;
-    transition-duration:0.2s;
+    transition-duration: 0.2s;
 }
 
     .btn-primary:hover {
@@ -61,55 +63,63 @@ textarea {
     }
 
 .btn-danger {
-    background-color: white;/*rgba(189, 135, 135, 0.73);*/
+    background-color: white; /*rgba(189, 135, 135, 0.73);*/
     border-color: white;
     /*border-left-color:red;*/
-    color:black;
-    transition-duration:0.2s;
+    color: black;
+    transition-duration: 0.2s;
 }
 
-.btn-danger:hover {
+    .btn-danger:hover {
+        animation-direction: reverse;
+    }
 
-   animation-direction:reverse;
-
-}.btn-save {
+.btn-save {
     border: 1px solid #249daf;
 }
 
-.form-control{
+.form-control {
     border-radius: 1px 1px;
-    box-shadow:100px;
+    box-shadow: 100px;
+    color: black;
 }
-.form-control:focus{
-    border-color: #249daf;
-}
+
+    .form-control:focus {
+        border-color: #249daf;
+    }
+
 .form-inline {
-display:inline;
+    display: inline;
+}
+
+.menthus {
+    font-weight: bolder;
 }
 
 
 .navbar-inverse {
     background-color: black;
-    height:10px;
+    height: 10px;
     border-color: #249daf;
 }
 
-.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    .navbar-inverse .navbar-collapse,
+    .navbar-inverse .navbar-form {
         border-color: transparent;
-}
-
-.navbar-inverse .navbar-brand {
-    color: #249daf;
-    font-weight: bolder;
-    font-size: x-large;
-}
-    
-.navbar-inverse .navbar-brand:hover,
- .navbar-inverse .navbar-brand:focus {
-        color: #1a7281;
-        background-color: transparent;
-        transition-duration:0.2s;
     }
+
+    .navbar-inverse .navbar-brand {
+        color: #249daf;
+        font-weight: bolder;
+        font-size: x-large;
+    }
+
+        .navbar-inverse .navbar-brand:hover,
+        .navbar-inverse .navbar-brand:focus {
+            color: #1a7281;
+            background-color: transparent;
+            transition-duration: 0.2s;
+        }
 
     .navbar-inverse .navbar-nav > li > a {
         color: #249daf;
@@ -119,25 +129,37 @@ display:inline;
     }
 
 .navbar-inverse .navbar-nav > li > a:hover {
-    opacity:0.8;
-    color:deepskyblue;
-    margin-top:5px;
-    border-top:3px solid #249daf;
-    transition-duration:0.3s;
+            opacity: 0.8;
+            color: deepskyblue;
+            margin-top: 5px;
+            border-top: 3px solid #249daf;
+            transition-duration: 0.3s;
+        }
+
+        .navbar-inverse .navbar-nav > li > a:focus {
+            border-top: 3px solid deepskyblue;
+            transition-duration: 0.1s;
+        }
+
+        .navbar-inverse .navbar-nav > li > a:after {
+            color: #249daf;
+            font-weight: bolder;
+            font-size: small;
+            transition-duration: 0.2s;
+        }
+
+
+select option {
+    background: #ffffff;
+    color: black;
+    box-shadow: inset 20px 20px #249daf
+}
+select option:active{
+    background-color:crimson;
 }
 
-.navbar-inverse .navbar-nav > li > a:focus {
-        
-    border-top: 3px solid deepskyblue;
-    transition-duration: 0.1s;
-}
-
-.navbar-inverse .navbar-nav > li > a:after {
+select option:hover {
     color: #249daf;
-    font-weight: bolder;
-    font-size: small;
-    transition-duration: 0.2s;
-}
-.menthus {
-    font-weight:bolder;
+    background:#249daf ;
+    box-shadow: 20px 20px #249daf;
 }
