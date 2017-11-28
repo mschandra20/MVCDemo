@@ -35,7 +35,7 @@ namespace MVCDemo.Controllers
         public ActionResult Details(int id)
         {
             MContext s_context = new MContext();
-            var StudentDetails = s_context.DbSetStudents.SingleOrDefault(s => s.StudentID == id);
+            var StudentDetails = s_context.DbSetEnrollments.FirstOrDefault(s => s.StudentID == id);
 
             return View(StudentDetails);
         }

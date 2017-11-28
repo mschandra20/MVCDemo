@@ -7,17 +7,17 @@
 <h2 style="margin-bottom:30px;"> List of Students</h2>
 
 
-    @using (Html.BeginForm("Index","Student",FormMethod.Get))
-     {
-        <div style="margin-bottom:20px;">
-          
-            <strong>Search Name</strong>  
-            @Html.TextBox("SearchName",null, htmlAttributes:new {@class="form-control form-inline"}) 
-          
-            <input type="submit" value="Filter" class="btn btn-primary btn-save" />
-        </div>
-     }
-    
+@using (Html.BeginForm("Index", "Student", FormMethod.Get))
+{
+    <div style="margin-bottom:20px;">
+
+        <strong>Search Name</strong>
+        @Html.TextBox("SearchName", null, htmlAttributes: new { @class = "form-control form-inline" })
+
+        <input type="submit" value="Filter" class="btn btn-primary btn-save" />
+    </div>
+}
+
 <table class="table ">
     <tr>
         <th colspan="10">
@@ -37,40 +37,46 @@
             <td colspan="10">
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            
+
             <td>
+                @using (Html.BeginForm("Delete", "Student", new { id = item.StudentID }))
+                {
+                    @Html.ActionLink("Edit"
+                                    , "Edit"
+                                    , "Student"
+                                    , new { id = item.StudentID }
+                                    , new { @class = "btn btn-primary btn-large btn-custom" })
 
 
-                @Html.ActionLink( "Edit"
-                                , "Edit"
-                                , "Student"
-                                , new { id = item.StudentID }
-                                , new { @class = "btn btn-primary btn-large btn-custom" })
 
-                
-                @Html.ActionLink( "Details"
-                                , "Details", "Student"
-                                , new { id = item.StudentID }
-                                , new { @class = "btn btn-primary btn-large btn-custom" })
+                    @Html.ActionLink("Details"
+                                    , "Details", "Student"
+                                    , new { id = item.StudentID }
+                                    , new { @class = "btn btn-primary btn-large btn-custom" })
 
 
-                @Html.ActionLink( "Delete"
-                                , "Delete"
-                                , "Student"
-                                , new { id = item.StudentID }
-                                , new { @class = "btn btn-danger btn-large btn-custom" })
+                    @*@Html.ActionLink( "Delete"
+                        , "Delete"
+                        , "Student"
+                        , new { id = item.StudentID }
+                        , new { @class = "btn btn-danger btn-large btn-custom" })*@
+                    <input type="submit"
+                           value="Delete"
+                           class="btn btn-danger btn-large btn-custom"
+                           onclick="return
+                           confirm('Are you sure want to delete this student with id= @item.EnrollmentNumber')" />
 
 
-                @Html.ActionLink( "Quick Enroll"
-                                , "Enroll"
-                                , "Enroll"
-                                , new { id = item.StudentID }
-                                , new { @class = "btn btn-primary btn-large btn-custom" })
-
+                     @Html.ActionLink( "Quick Enroll"
+                                      ,"Enroll"
+                                      ,"Enroll"
+                                      , new { id = item.StudentID }
+                                      , new { @class = "btn btn-primary btn-large btn-custom" })
+                }
             </td>
         </tr>
-     }
-    
+    }
+
 </table>
 <p>
     @Html.ActionLink("Create New", "Create", "Student", null, new { @class = "btn btn-primary btn-save" })

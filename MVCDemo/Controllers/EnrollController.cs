@@ -9,7 +9,7 @@ namespace MVCDemo.Controllers
     {
         // GET: Enroll
         [HttpGet]
-        public ActionResult Enroll(FormCollection enroll)
+        public ActionResult Enroll()
         {
             //Course Name List
             MContext s_context = new MContext();
@@ -36,11 +36,13 @@ namespace MVCDemo.Controllers
 
             ////////////////////////////////////////////////////////////////////////////////////////
 
-            var sn = Convert.ToInt32(Request.Form["Enrollment Number"]);
-            var s = GetStudent(sn);
-            Enrollment e = new Enrollment();
-            e.student = s;
-            return View(e);
+            //var sn = Convert.ToInt32(Request.Form["Enrollment Number"]);
+            //var s = GetStudent(sn);
+            //Enrollment e = new Enrollment();
+            //e.student = s;
+            //return View(e);
+
+            return View();
         }
 
         [HttpPost]
@@ -48,29 +50,20 @@ namespace MVCDemo.Controllers
         public ActionResult Enroll_post(FormCollection enroll)
         {
             MContext s_context = new MContext();
-            //Here we get the id of the student and course and we associate 
+            //Here we get the Id of the student and course and we associate 
             //them with the enrollment object
 
-            var st = Convert.ToInt32(Request.Form[0]);//Student
+            var st = Convert.ToInt32(Request.Form[0]);//StudentID
 
-            var co = Convert.ToInt32(Request.Form[1]);//Course
+            var co = Convert.ToInt32(Request.Form[1]);//CourseID
+            GetStudent(co,st);
 
+            
 
-            var c = s_context.DbSetCourses.SingleOrDefault(x => x.CourseID == co);
-            var s = s_context.DbSetStudents.SingleOrDefault(x => x.StudentID== st);
-
-            if (c != null )
-            {
-            RedirectToAction("Enroll", "Enroll");
-
-
-            }
-
-            if (s != null)
-            {
-                RedirectToAction("Enroll", "Enroll");
-
-            }
+            //if (s != null)
+            //{
+            //    RedirectToAction("Enroll", "Enroll");
+            //}
 
 
             s_context.DbSetEnrollments.Add(
@@ -90,15 +83,20 @@ namespace MVCDemo.Controllers
 
 
 
-        public Student GetStudent(int sn)
+        public ActionResult GetStudent(int co,int st)
         {
             MContext s_context = new MContext();
-           // var sn  = Convert.ToInt32(Request.Form["Enrollment Number"]);
-            var sobj = s_context.DbSetStudents.FirstOrDefault(x => x.EnrollmentNumber == sn);
-            //var sid = sobj.StudentID;
+
+            var c = s_context.DbSetCourses.SingleOrDefault(x => x.CourseID == co);
+            var s = s_context.DbSetStudents.SingleOrDefault(x => x.StudentID == st);
 
 
-            return sobj;
+            //if (c != null && s != null)
+            //{
+            //    return RedirectToAction("Enroll", "Enroll");
+            //}
+
+            return RedirectToAction("Enroll", "Enroll");
         }
 
 
