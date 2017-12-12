@@ -1,6 +1,5 @@
-﻿@model MVCDemo.Models.Enrollment
+﻿@model MVCDemo.ViewModels.EnrollViewModel
 
-@using MVCDemo.Models
 
 @{
     ViewBag.Title = "Enroll";
@@ -13,14 +12,14 @@
 {
 
     <div class="form-horizontal">
-
-        
-
+        @* DD for student number *@
         <div class="form-group">
-            @Html.LabelFor(m => m.student.EnrollmentNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(m => m.StudentEnrollmentNumber, htmlAttributes: new { @class = "control-label col-md-2" })
 
             <div class="col-md-10">
             @*@Html.DisplayFor(m => m.student.EnrollmentNumber , new { htmlAttributes = new { @class = "form-control" } })*@
+               
+              @*  @Html.DropDownListFor(s => s.StudentEnrollmentNumber, Model.StudentEnrollmentNumber, "Select");*@
                 @Html.DropDownList( "StudentNumberList"
                                    , ViewBag.SNList as SelectList
                                    , "Select"
@@ -33,21 +32,51 @@
                 </div>
         </div>
 
+        @* Label for StudentName *@
         <div class="form-group">
-            @Html.LabelFor(m => m.student.Name, htmlAttributes: new { @class = " control-label col-md-2" })
+            @Html.LabelFor(m => m.StudentName, htmlAttributes: new { @class = " control-label col-md-2", disabled="disabled" })
 
 
             <div class="col-md-10">
-                @Html.DisplayFor(m => m.student.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @*@Html.DropDownList(" StudentNumberList"
-                , ViewBag.SNList as SelectList
-                , "Select"
-                , htmlAttributes: new { @class = "form-control control-label" })*@
+                @Html.DisplayFor(m => m.StudentName, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            </div>
+        </div>
+
+        @* Label for Contact *@
+        <div class="form-group">
+            @Html.LabelFor(m => m.Contact, htmlAttributes: new { @class = " control-label col-md-2", disabled = "disabled" })
+
+
+            <div class="col-md-10">
+                @Html.DisplayFor(m => m.Contact, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
             </div>
         </div>
         
+        @* Label for Address *@
         <div class="form-group">
-            @Html.LabelFor(m => m.course.CourseNumber, htmlAttributes: new { @class = " control-label col-md-2" })
+            @Html.LabelFor(m => m.Address, htmlAttributes: new { @class = " control-label col-md-2", disabled = "disabled" })
+
+
+            <div class="col-md-10">
+                @Html.DisplayFor(m => m.Address, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            </div>
+        </div>
+
+        @* Label for DOB *@
+        <div class="form-group">
+            @Html.LabelFor(m => m.DateOfBirth, htmlAttributes: new { @class = " control-label col-md-2", disabled = "disabled" })
+
+
+            <div class="col-md-10">
+                @Html.DisplayFor(m => m.DateOfBirth, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            </div>
+        </div>
+
+
+
+        @* DD for Course Number *@
+        <div class="form-group">
+            @Html.LabelFor(m => m.CourseNumber, htmlAttributes: new { @class = " control-label col-md-2" })
 
 
             <div class="col-md-10">
@@ -62,20 +91,53 @@
 
         </div>
 
+        @* Display for CourseName  *@
         <div class="form-group">
-            @Html.LabelFor(m => m.course.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(m => m.CourseName, htmlAttributes: new { @class = "control-label col-md-2" })
 
             <div class="col-md-10">
-                 @Html.DisplayFor(m => m.student.Name, new { htmlAttributes = new { @class = "form-control" } })
+                 @Html.DisplayFor(m => m.CourseName, new { htmlAttributes = new { @class = "form-control" } })
                 @*@Html.DropDownList(" CourseNameList"
                                    , ViewBag.CList as SelectList
                                    , "Select"
                                    , htmlAttributes: new { @class = "form-control control-label" })*@
-
-            </div>
+           </div>
 
         </div>
 
+        @* Label for Total Capcity *@
+        <div class="form-group">
+            @Html.LabelFor(m => m.Capacity, htmlAttributes: new { @class = " control-label col-md-2", disabled = "disabled" })
+
+
+            <div class="col-md-10">
+                @Html.DisplayFor(m => m.Capacity, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            </div>
+        </div>
+
+        @* Label for Enrolled *@
+        <div class="form-group">
+            @Html.LabelFor(m => m.Enrolled, htmlAttributes: new { @class = " control-label col-md-2", disabled = "disabled" })
+
+
+            <div class="col-md-10">
+                @Html.DisplayFor(m => m.Enrolled, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            </div>
+        </div>
+
+        @* Label for Empty Seats *@
+        <div class="form-group">
+            @Html.LabelFor(m => m.UnEnrolled, htmlAttributes: new { @class = " control-label col-md-2", disabled = "disabled" })
+
+
+            <div class="col-md-10">
+                @Html.DisplayFor(m => m.UnEnrolled, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            </div>
+        </div>
+
+
+
+        @* Submit Button *@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Enroll" class="btn btn-primary btn-save" />
@@ -83,8 +145,43 @@
         </div>
 
     </div>
+
+
+    @*Cancel Button*@
         <div>
             @* @Html.ActionLink("Cancel", "Index", "Student", new { htmlAttributes = new { @class = "btn btn-primary btn-save" } } )*@
             @Html.ActionLink("Cancel", "Index", "Student", null, new { @class = "btn btn-primary btn-save" })
         </div>
 }
+
+
+<script type="text/javascript"  src="/Scripts/jquery-1.10.2.js">
+
+ $(function(){
+
+     $("StudentEnrollmentNumber").change(function() {
+
+            var t = $(this).val();
+
+            if (t !== "") {
+                $.post("@Url.Action("GetDefault", "Home")?val=" + t, function(res) {
+                    if (res.Success === "true") {
+
+                      //enable the text boxes and set the value
+
+                        $("#StudentName").prop('disabled', false).val(res.Data.val);
+                        $("#Contact").prop('disabled', false).val(res.Data.val);
+
+                    } else {
+                        alert("Error getting data!");
+                    }
+                });
+            } else {
+                //Let's clear the values and disable :)
+                $("input.editableItems").val('').prop('disabled', true);
+            }
+
+        });
+ });
+
+</script>

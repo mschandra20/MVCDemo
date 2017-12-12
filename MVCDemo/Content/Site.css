@@ -20,7 +20,7 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 280px ;
 }
 
 
@@ -38,6 +38,11 @@ textarea {
         color: deepskyblue;
         border-top: 3px solid deepskyblue;
     }
+
+.active-field :active {
+        color: red;
+        border-top: 3px solid deepskyblue;
+}
 
 .btn {
     border-radius: 1px 1px;
@@ -94,6 +99,7 @@ textarea {
 
 .menthus {
     font-weight: bolder;
+    background-color: black;
 }
 
 
@@ -128,7 +134,7 @@ textarea {
         transition-duration: 0.3s;
     }
 
-.navbar-inverse .navbar-nav > li > a:hover {
+        .navbar-inverse .navbar-nav > li > a:hover {
             opacity: 0.8;
             color: deepskyblue;
             margin-top: 5px;
@@ -154,12 +160,13 @@ select option {
     color: black;
     box-shadow: inset 20px 20px #249daf
 }
-select option:active{
-    background-color:crimson;
-}
 
-select option:hover {
-    color: #249daf;
-    background:#249daf ;
-    box-shadow: 20px 20px #249daf;
-}
+    select option:active {
+        background-color: crimson;
+    }
+
+    select option:hover {
+        color: #249daf;
+        background: #249daf;
+        box-shadow: 20px 20px #249daf;
+    }
