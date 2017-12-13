@@ -62,7 +62,10 @@ namespace MVCDemo.ViewModels
         public List<SelectListItem> CourseEnrollmentNumber { set; get; }
 
 
-        public int? SelectedNumber { set; get; }
+        public int? SelectedStudentNumber { set; get; }
+
+        public int? SelectedCourseNumber { set; get; }
+
     }
 }
 

@@ -55,7 +55,7 @@
            @* @Html.DisplayNameFor(model=>model.enrollment)*@
         </dt>
 
-        <dd>
+        @*<dd>
             <table class="table">
                 <tr>
                     <th>Course Title</th>
@@ -68,12 +68,12 @@
                             @Html.DisplayFor(modelItem => item.course.Name)
                         </td>
                         <td>
-                           @* @Html.DisplayFor(modelItem => item.student.EnrollmentNumber)*@
+                           @* @Html.DisplayFor(modelItem => item.student.EnrollmentNumber)
                         </td>
                     </tr>
                  }
             </table>
-        </dd>
+        </dd> *@
 
 
 
@@ -83,7 +83,7 @@
 </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit","Student", new { id = Model.StudentID },new { @class="btn btn-primary btn-save"})
+   @* @Html.ActionLink("Edit", "Edit","Student", new { id = Model.StudentID },new { @class="btn btn-primary btn-save"})*@
     
     @Html.ActionLink("Back to List", "Index","Student",new { @class="btn btn-primary btn-save" })
 

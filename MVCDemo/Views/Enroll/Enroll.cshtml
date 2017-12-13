@@ -19,14 +19,14 @@
             <div class="col-md-10">
             @*@Html.DisplayFor(m => m.student.EnrollmentNumber , new { htmlAttributes = new { @class = "form-control" } })*@
                
-              @*  @Html.DropDownListFor(s => s.StudentEnrollmentNumber, Model.StudentEnrollmentNumber, "Select");*@
+                @*@Html.DropDownListFor(s => s.StudentEnrollmentNumber, Model.StudentEnrollmentNumber, "Select");*@
                 @Html.DropDownList( "StudentNumberList"
                                    , ViewBag.SNList as SelectList
                                    , "Select"
                                    , htmlAttributes: new { @class = "form-control control-label" })
                         
                 @*<div class="col-md-2">*@
-                    @Html.ActionLink("Get Details", "Enroll", "Enroll", null, new { @class = "btn btn-primary btn-save control-label" })
+                @*   @Html.ActionLink("Get Details", "Enroll", "Enroll", null, new { @class = "btn btn-primary btn-save control-label" })*@
                 @*</div>*@
 
                 </div>
@@ -86,7 +86,7 @@
                                    , ViewBag.CNList as SelectList
                                    , "Select"
                                    , htmlAttributes: new { @class = "form-control control-label " })
-                @Html.ActionLink("Get Details", "Enroll", "Enroll", null, new { @class = "btn btn-primary btn-save" })
+               @* @Html.ActionLink("Get Details", "Enroll", "Enroll", null, new { @class = "btn btn-primary btn-save" })*@
             </div>
 
         </div>
@@ -159,12 +159,12 @@
 
  $(function(){
 
-     $("StudentEnrollmentNumber").change(function() {
+     $("#ViewBag.SNList").change(function() {
 
             var t = $(this).val();
 
             if (t !== "") {
-                $.post("@Url.Action("GetDefault", "Home")?val=" + t, function(res) {
+                $.post("@Url.Action("GetDefault", "Enroll")?val=" + t, function(res) {
                     if (res.Success === "true") {
 
                       //enable the text boxes and set the value
