@@ -7,7 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body >
+<body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -46,7 +46,12 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content" 
+         @*style="background-image: url('/Images/man-suit-blackboard-science-math.jpg');
+                opacity:0.5;
+                min-width:100%;
+                min-height:100%;
+                background-color:rgba(0,0,0,0.9)"*@>
         @RenderBody()
         <hr />
         <footer class="nav-divider">

@@ -7,13 +7,115 @@
     ViewBag.Title = "Home Page";
 }
 
-<body style="">
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial;
+            font-size: 17px;
+        }
+
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+        }
+
+        .content {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            /*width: 80%;*/
+            padding: 20px;
+        }
+        .content:after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #249daf;
+            opacity: 0.75;
+        }
+
+
+        .About {
+            position: absolute;
+            bottom: 10px;
+            left: 25px;
+            color: black;
+            
+        }
+
+        #myBtn {
+            width: 200px;
+            font-size: 15px;
+            padding: 8px;
+            border: none;
+            background: black;
+            opacity: 0.5;
+            color: white;
+            cursor: pointer;
+        }
+
+            #myBtn:hover {
+                background: black;
+                color: white;
+            }
+    </style>
+</head>
+
+
+<body>
+
+    <video autoplay muted loop id="myVideo">
+        
+        @*<video controls="controls">*@
+            <source src="~/Videos/Diagonal.mp4" type="video/mp4" class="content" />
+        
+        Your browser does not support HTML5 video.
+    </video>
+
+    <div @*class="content"*@>
+        <div class="About">
+            <h1>About Us</h1>
+            <p>The MenthusViC University provides public access to a 
+            first-class online education and the tools of discovery.<br /> 
+            This has resulted in a culture of ambition and leadership,
+            where physical scale is matched by bold goals and achievements.</p>
+            <button id="myBtn" onclick="myFunction()">Pause</button>
+        </div>
+    </div>
+
     
-    
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
-
 </body>
+
+</html>
+
+
+@* Script for the button to play or pause the video *@
+<script>
+    var video = document.getElementById("myVideo");
+    var btn = document.getElementById("myBtn");
+
+    function myFunction() {
+        if (video.paused) {
+            video.play();
+            btn.innerHTML = "Pause";
+        } else {
+            video.pause();
+            btn.innerHTML = "Play";
+        }
+    }
+</script>

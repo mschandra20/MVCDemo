@@ -2,6 +2,7 @@
 using System;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 namespace MVCDemo.Controllers
 {
@@ -21,7 +22,8 @@ namespace MVCDemo.Controllers
         {
             MContext s_context = new MContext();
             var students = from s in s_context.DbSetStudents
-                         select s;
+                           //group s.EnrollmentNumber 
+                           select s;
 
             if (!String.IsNullOrEmpty(SearchName))
             {
@@ -130,45 +132,71 @@ namespace MVCDemo.Controllers
         }
 
         // GET: Student/Delete/5
-        public ActionResult Delete()
-        {
-            //MContext s_context = new MContext();
-
-            //var DelStu = s_context.DbSetStudents.SingleOrDefault(x => x.StudentID == id);
-            //s_context.DbSetStudents.Remove(DelStu);
-            //s_context.SaveChanges();
-
-            return RedirectToAction("Index", "Student");
-        }
-
-        // POST: Student/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-                MContext s_context = new MContext();
-
-                var DelStu = s_context.DbSetStudents.SingleOrDefault(x => x.StudentID == id);
-                s_context.DbSetStudents.Remove(DelStu);
-                s_context.SaveChanges();
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-
-        //[HttpGet]
-        //public ActionResult Enroll(int id)
+        //public ActionResult Delete()
         //{
-           
+        //    //MContext s_context = new MContext();
+
+        //    //var DelStu = s_context.DbSetStudents.SingleOrDefault(x => x.StudentID == id);
+        //    //s_context.DbSetStudents.Remove(DelStu);
+        //    //s_context.SaveChanges();
+
+        //    return RedirectToAction("Index", "Student");
         //}
 
-        
+        //// POST: Student/Delete/5
+        //[HttpPost]
+        //public ActionResult Delete(int id)
+        //{
+        //    try
+        //    {
+        //        // TODO: Add delete logic here
+        //        MContext s_context = new MContext();
+
+        //        var DelStu = s_context.DbSetStudents.SingleOrDefault(x => x.StudentID == id);
+        //        s_context.DbSetStudents.Remove(DelStu);
+        //        s_context.SaveChanges();
+
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
+
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            MContext s_context = new MContext();
+
+            var stu = s_context.DbSetStudents.Find(id);
+
+            if (stu == null)
+            {
+                return HttpNotFound();
+            }
+            return View(stu);
+        }
+
+
+        [HttpPost]
+        [ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            MContext s_context = new MContext();
+
+            var stu = s_context.DbSetStudents.Find(id);
+            s_context.DbSetStudents.Remove(stu);
+            s_context.SaveChanges();
+
+            return RedirectToAction("Index", "Student");
+            //return true;
+            //return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
+
+
     }
 }

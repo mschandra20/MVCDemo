@@ -62,14 +62,15 @@
                         , new { @class = "btn btn-danger btn-large btn-custom" })*@
                     <input type="submit"
                            value="Delete"
+                           href="#"
+                           id="Delete"
                            class="btn btn-danger btn-large btn-custom"
-                           onclick="return
-                           confirm('Are you sure want to delete this student with id= @item.EnrollmentNumber')" />
+                           onclick="return confirm('Are you sure want to delete this student with Student ID= @item.EnrollmentNumber')" />
 
 
-                     @Html.ActionLink( "Quick Enroll"
-                                      ,"Enroll"
-                                      ,"Enroll"
+                        @Html.ActionLink("Quick Enroll"
+                                      , "Enroll"
+                                      , "Enroll"
                                       , new { id = item.StudentID }
                                       , new { @class = "btn btn-primary btn-large btn-custom" })
                 }
@@ -81,3 +82,30 @@
 <p>
     @Html.ActionLink("Create New", "Create", "Student", null, new { @class = "btn btn-primary btn-save" })
 </p>
+
+@* This code is to do the deleting operation using the AJAX post request
+    so the page won't reload while we delete a record *@
+<script type="text/javascript">
+    $(document).delegate('#Delete', 'click', function (e)
+    {
+
+    e.preventDefault();
+
+    $.ajax({
+            type: "post",
+            url: "@Url.Action("Delete", "Student")",
+            ajaxasync: true,
+            data: { id : $('input#idField').val() },
+            success: function () {
+
+            alert("success");
+
+            // Perform redirect
+            window.location.replace("@Url.Action("Index", "Student")");
+            },
+            error: function (data) {
+            alert(data.x);
+            }
+        });
+    });
+</script>

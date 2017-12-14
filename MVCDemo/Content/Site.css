@@ -8,6 +8,11 @@
     padding-left: 15px;
     padding-right: 15px;
 }
+/*.body .container .body-content {
+    background-image: url('/Images/man-suit-blackboard-science-math.jpg');
+    opacity:0.5;
+}*/
+
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
@@ -104,9 +109,9 @@ textarea {
 
 
 .navbar-inverse {
-    background-color: black;
+    background-color:rgba(0,0,0,0.75);
     height: 10px;
-    border-color: #249daf;
+    border-color: black;
 }
 
     .navbar-inverse .navbar-collapse,
@@ -118,6 +123,8 @@ textarea {
         color: #249daf;
         font-weight: bolder;
         font-size: x-large;
+        line-height:18px;
+        background-color:transparent;
     }
 
         .navbar-inverse .navbar-brand:hover,
