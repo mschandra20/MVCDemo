@@ -1,5 +1,6 @@
 ﻿using MVCDemo.Models;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -27,7 +28,7 @@ namespace MVCDemo.Controllers
 
             if (!String.IsNullOrEmpty(SearchName))
             {
-                students = students.Where(s => s.Name.Contains(SearchName));
+                students = students.Where(s => s.Name.StartsWith(SearchName));
             }
 
             return View(students);
@@ -192,9 +193,33 @@ namespace MVCDemo.Controllers
             s_context.DbSetStudents.Remove(stu);
             s_context.SaveChanges();
 
-            return RedirectToAction("Index", "Student");
+            //return RedirectToAction("Index", "Student");
             //return true;
             //return new HttpStatusCodeResult(HttpStatusCode.OK);
+            return Json(JsonRequestBehavior.AllowGet);
+
+        }
+
+
+        public JsonResult GetStudents(string term)
+        {
+            MContext s_context = new MContext();
+            List<string> students;
+            //if (string.IsNullOrEmpty(term))
+            //{
+            //    students = s_context.DbSetStudents.ToList();
+            //}
+            //else
+            
+                students = s_context
+                          .DbSetStudents
+                          .Where(x => x.Name.StartsWith(term))
+                          .Select(y=>y.Name)
+                          .ToList();
+            
+
+            return Json(students,JsonRequestBehavior.AllowGet);
+
         }
 
 
