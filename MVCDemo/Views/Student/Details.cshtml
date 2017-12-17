@@ -1,7 +1,10 @@
-﻿@model MVCDemo.Models.Student
+﻿@*@model MVCDemo.Models.Student*@
+
+@model MVCDemo.Models.Enrollment
+
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "StudentDetails";
 }
 
 <h2>Details</h2>
@@ -11,69 +14,71 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.EnrollmentNumber)
+            @Html.DisplayNameFor(model => model.student.EnrollmentNumber)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EnrollmentNumber)
+            @Html.DisplayFor(model => model.student.EnrollmentNumber)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.student.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.TextBoxFor(model => model.student.Name)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Address)
+            @Html.DisplayNameFor(model => model.student.Address)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Address)
+            @Html.DisplayFor(model => model.student.Address)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Contact)
+            @Html.DisplayNameFor(model => model.student.Contact)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Contact)
+            @Html.DisplayFor(model => model.student.Contact)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DateOfBirth)
+            @Html.DisplayNameFor(model => model.student.DateOfBirth)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DateOfBirth)
+            @Html.DisplayFor(model => model.student.DateOfBirth)
         </dd>
 
-        <dt>
-            Enrollments
-           @* @Html.DisplayNameFor(model=>model.enrollment)*@
-        </dt>
+        <dt></dt>
+            <br />
+            <h3>Enrollments</h3>
+            <br />
+            @Html.DisplayNameFor(model=>model.student.enrollment)
+        
 
-        @*<dd>
+        <dd>
             <table class="table">
                 <tr>
-                    <th>Course Title</th>
-                    <th>Grade</th>
+                    <th>course title</th>
+                    <th>grade</th>
                 </tr>
-                @foreach (var item in Model.enrollment)
+                @foreach (var item in Model.student.enrollment)
                  {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.course.Name)
+                            @Html.DisplayFor(modelitem => item.course.Name)
                         </td>
                         <td>
-                           @* @Html.DisplayFor(modelItem => item.student.EnrollmentNumber)
+                            @Html.DisplayFor(modelitem => item.student.EnrollmentNumber)
                         </td>
                     </tr>
                  }
             </table>
-        </dd> *@
+        </dd> 
 
 
 

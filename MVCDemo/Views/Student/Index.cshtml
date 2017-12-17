@@ -1,9 +1,33 @@
 ﻿@model IEnumerable<MVCDemo.Models.Student>
 
-<link href="~/Content/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+
+@*<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet" />
+
+<script src="~/Scripts/jquery-ui.min.js" type="text/javascript"></script>
+
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" type="text/javascript"></script>*@
+<link href="~/Content/jquery-ui.min.css" rel="stylesheet" type="text/css" />
 <script src="~/Scripts/jquery-ui.js" type="text/javascript"></script>
 <script src="~/Scripts/jquery-ui.min.js" type="text/javascript"></script>
+
 <script type="text/javascript">
+        $(document).ready(function () {
+            $("#txtSearch").autocomplete({
+                source: '@Url.Action("GetStudents","Student")',
+                minLength: 0
+            });
+        });
+</script>
+
+
+
+
+
+
+    @*<link href="~/Content/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/jquery-ui.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery-ui.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
     $(function () {
         $("#txtSearch").autocomplete({
             source: '@Url.Action("GetStudents")'
@@ -12,50 +36,50 @@
     });
 
 
-</script>
+    </script>*@
 
-@{
-    ViewBag.Title = "Index";
-}
+    @{
+        ViewBag.Title = "Index";
+    }
 
-<h2 style="margin-bottom:30px;"> List of Students</h2>
+    <h2 style="margin-bottom:30px;"> List of Students</h2>
 
 
-@using (Html.BeginForm("Index", "Student", FormMethod.Get))
-{
-    <div style="margin-bottom:20px;">
-
-        <strong>Search Name</strong>
-        @Html.TextBox("SearchName", null, htmlAttributes: new { @class = "form-control form-inline", Id="txtSearch" })
-
-        <input type="submit" value="Filter" class="btn btn-primary btn-save" />
-    </div>
-}
-
-<table class="table ">
-    <tr>
-        <th colspan="10">
-            @Html.DisplayNameFor(model => model.EnrollmentNumber)
-        </th>
-        <th colspan="10">
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-    </tr>
-
-    @foreach (var item in Model)
+    @using (Html.BeginForm("Index", "Student", FormMethod.Get))
     {
-        <tr>
-            <td colspan="10">
-                @Html.DisplayFor(modelItem => item.EnrollmentNumber)
-            </td>
-            <td colspan="10">
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
+        <div style="margin-bottom:20px;">
 
-            <td>
-                @using (Html.BeginForm("Delete", "Student", new { id = item.StudentID }))
+            <strong>Search Name</strong>
+            @Html.TextBox("SearchName", null, htmlAttributes: new { @class = "form-control form-inline", Id = "txtSearch" })
+
+            <input type="submit" value="Filter" class="btn btn-primary btn-save" />
+        </div>
+    }
+
+    <table class="table ">
+        <tr>
+            <th colspan="10">
+                @Html.DisplayNameFor(model => model.EnrollmentNumber)
+            </th>
+            <th colspan="10">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td colspan="10">
+                    @Html.DisplayFor(modelItem => item.EnrollmentNumber)
+                </td>
+                <td colspan="10">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+
+                <td>
+                    @using (Html.BeginForm("Delete", "Student", new { id = item.StudentID }))
                 {
-                    @Html.ActionLink("Edit"
+                        @Html.ActionLink("Edit"
                                     , "Edit"
                                     , "Student"
                                     , new { id = item.StudentID }
@@ -63,44 +87,44 @@
 
 
 
-                    @Html.ActionLink("Details"
+                        @Html.ActionLink("Details"
                                     , "Details", "Student"
                                     , new { id = item.StudentID }
                                     , new { @class = "btn btn-primary btn-large btn-custom" })
 
 
-                    @*@Html.ActionLink( "Delete"
-                        , "Delete"
-                        , "Student"
-                        , new { id = item.StudentID }
-                        , new { @class = "btn btn-danger btn-large btn-custom" , @id="Delete", href="#" })*@
-                    
-                    <input type="submit"
-                           value="Delete"
-                           href="#"
-                           id="Delete"
-                           class="btn btn-danger btn-large btn-custom"
-                           onclick="return confirm('Are you sure want to delete this student with Student ID= @item.EnrollmentNumber')" />
-                        
+                        @*@Html.ActionLink( "Delete"
+                            , "Delete"
+                            , "Student"
+                            , new { id = item.StudentID }
+                            , new { @class = "btn btn-danger btn-large btn-custom" , @id="Delete", href="#" })*@
+
+                        <input type="submit"
+                               value="Delete"
+                               href="#"
+                               id="Delete"
+                               class="btn btn-danger btn-large btn-custom"
+                               onclick="return confirm('Are you sure want to delete this student with Student ID= @item.EnrollmentNumber')" />
+
 
                         @Html.ActionLink("Quick Enroll"
                                       , "Enroll"
                                       , "Enroll"
                                       , new { id = item.StudentID }
                                       , new { @class = "btn btn-primary btn-large btn-custom" })
-                }
-            </td>
-        </tr>
-    }
+                    }
+                </td>
+            </tr>
+        }
 
-</table>
-<p>
-    @Html.ActionLink("Create New", "Create", "Student", null, new { @class = "btn btn-primary btn-save" })
-</p>
+    </table>
+    <p>
+        @Html.ActionLink("Create New", "Create", "Student", null, new { @class = "btn btn-primary btn-save" })
+    </p>
 
-@* This code is to do the deleting operation using the AJAX post request
-    so the page won't reload while we delete a record *@
-<script type="text/javascript">
+    @* This code is to do the deleting operation using the AJAX post request
+        so the page won't reload while we delete a record *@
+    <script type="text/javascript">
     $(document).delegate('#Delete', 'click', function (e)
     {
 
@@ -123,4 +147,4 @@
             }
         });
     });
-</script>
+    </script>

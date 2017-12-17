@@ -38,7 +38,15 @@ namespace MVCDemo.Controllers
         public ActionResult Details(int id)
         {
             MContext s_context = new MContext();
-            var StudentDetails = s_context.DbSetEnrollments.FirstOrDefault(s => s.StudentID == id);
+            var EnrollDetails = s_context
+                                .DbSetEnrollments
+                                .FirstOrDefault(s => s.student.StudentID== id);
+            var StudentDetails = s_context
+                                .DbSetStudents
+                                .FirstOrDefault(s => s.StudentID == id);
+            var CourseDetails = s_context
+                                .DbSetCourses
+                                .All(StudentDetails.StudentID == id);
 
             return View(StudentDetails);
         }
@@ -196,11 +204,11 @@ namespace MVCDemo.Controllers
             //return RedirectToAction("Index", "Student");
             //return true;
             //return new HttpStatusCodeResult(HttpStatusCode.OK);
-            return Json(JsonRequestBehavior.AllowGet);
+            return Json(JsonRequestBehavior.DenyGet);
 
         }
 
-
+        [HttpPost]
         public JsonResult GetStudents(string term)
         {
             MContext s_context = new MContext();
