@@ -1,10 +1,9 @@
-﻿@*@model MVCDemo.Models.Student*@
-
-@model MVCDemo.Models.Enrollment
+﻿@model MVCDemo.Models.Student
 
 
 @{
-    ViewBag.Title = "StudentDetails";
+    ViewBag.Title = "Details";
+    
 }
 
 <h2>Details</h2>
@@ -14,50 +13,50 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.student.EnrollmentNumber)
+            @Html.DisplayNameFor(model => model.EnrollmentNumber)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.student.EnrollmentNumber)
+            @Html.DisplayFor(model => model.EnrollmentNumber)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.student.Name)
+            @Html.DisplayNameFor(model => model.Name)
         </dt>
 
         <dd>
-            @Html.TextBoxFor(model => model.student.Name)
+            @Html.TextBoxFor(model => model.Name)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.student.Address)
+            @Html.DisplayNameFor(model => model.Address)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.student.Address)
+            @Html.DisplayFor(model => model.Address)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.student.Contact)
+            @Html.DisplayNameFor(model => model.Contact)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.student.Contact)
+            @Html.DisplayFor(model => model.Contact)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.student.DateOfBirth)
+            @Html.DisplayNameFor(model => model.DateOfBirth)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.student.DateOfBirth)
+            @Html.DisplayFor(model => model.DateOfBirth)
         </dd>
 
-        <dt></dt>
+        @*<dt></dt>
             <br />
             <h3>Enrollments</h3>
             <br />
-            @Html.DisplayNameFor(model=>model.student.enrollment)
+            @Html.DisplayNameFor(model=>model.enrollment)
         
 
         <dd>
@@ -66,19 +65,20 @@
                     <th>course title</th>
                     <th>grade</th>
                 </tr>
-                @foreach (var item in Model.student.enrollment)
+                @* Need to edit the below code to show the enrollments *@
+                @*@foreach (var item in Model.enrollment)
                  {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelitem => item.course.Name)
+                            @Html.DisplayFor(modelitem => item.student.Name)
                         </td>
-                        <td>
+                        @*<td>
                             @Html.DisplayFor(modelitem => item.student.EnrollmentNumber)
                         </td>
                     </tr>
                  }
             </table>
-        </dd> 
+        </dd>*@
 
 
 

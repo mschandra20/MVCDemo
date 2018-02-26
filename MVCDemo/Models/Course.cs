@@ -53,7 +53,7 @@ namespace MVCDemo.Models
         //public int EnrollmentID { get; set; }
 
         //Navigation properties
-        public IEnumerable<Enrollment> enrollment { get; set; }
+        public virtual IEnumerable<Enrollment> enrollment { get; set; }
         
     }
 }

@@ -15,13 +15,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
+                </button@*>*@
                 @Html.ActionLink("MenthusViC University", "Index", "Home", new { area = "" }, new { @class = "navbar-brand menthus" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Home" ? "active-field" : "")">
-                        @Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
 
                     <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Student" ? "active-field" : "")">
                         @Html.ActionLink("Students", "Index", "Student")</li>

@@ -42,7 +42,7 @@ namespace MVCDemo.Models
         //[ForeignKey("enrollment")]
         //public int EnrollmentID { get; set; }
 
-        public IEnumerable<Enrollment> enrollment{ get; set; }
+        public virtual IEnumerable<Enrollment> enrollment{ get; set; }
 
     }
 }

@@ -9,7 +9,7 @@
     padding-right: 15px;
 }
 /*.body .container .body-content {
-    background-image: url('/Images/man-suit-blackboard-science-math.jpg');
+    background-image: url('/Images/man-suit-blackboard-deepscience-math.jpg');
     opacity:0.5;
 }*/
 
@@ -25,7 +25,7 @@
 input,
 select,
 textarea {
-    max-width: 280px ;
+    max-width: 280px;
 }
 
 
@@ -34,20 +34,21 @@ textarea {
 
 
 .active-field {
-    color: deepskyblue;
     margin-top: 5px;
     border-top: 3px solid deepskyblue;
 }
 
     .active-field :hover {
-        color: deepskyblue;
+        border-top: 5px solid deepskyblue;
+    }
+
+   .active-field :active {
         border-top: 3px solid deepskyblue;
     }
 
-.active-field :active {
-        color: red;
+    .active-field :focus {
         border-top: 3px solid deepskyblue;
-}
+    }
 
 .btn {
     border-radius: 1px 1px;
@@ -123,8 +124,8 @@ textarea {
         color: #249daf;
         font-weight: bolder;
         font-size: x-large;
-        line-height:18px;
-        background-color:transparent;
+        line-height: 18px;
+        background-color: transparent;
     }
 
         .navbar-inverse .navbar-brand:hover,
@@ -138,7 +139,7 @@ textarea {
         color: #249daf;
         font-weight: bolder;
         font-size: small;
-        transition-duration: 0.3s;
+        transition: all 0.3s;
     }
 
         .navbar-inverse .navbar-nav > li > a:hover {
@@ -146,19 +147,18 @@ textarea {
             color: deepskyblue;
             margin-top: 5px;
             border-top: 3px solid #249daf;
-            transition-duration: 0.3s;
+            /*transition-duration: 0.3s;*/
         }
 
         .navbar-inverse .navbar-nav > li > a:focus {
             border-top: 3px solid deepskyblue;
-            transition-duration: 0.1s;
+            /*transition-duration: 0.1s;*/
         }
 
         .navbar-inverse .navbar-nav > li > a:after {
-            color: #249daf;
+            color: deepskyblue;
             font-weight: bolder;
             font-size: small;
-            transition-duration: 0.2s;
         }
 
 

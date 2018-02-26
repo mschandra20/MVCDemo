@@ -19,7 +19,7 @@ namespace MVCDemo.Models
 
 
         //Navigation properties
-        public Student student { get; set; }
-        public Course course { get; set; }
+        public virtual Student student { get; set; }
+        public virtual Course course { get; set; }
     }
 }

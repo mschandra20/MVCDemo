@@ -55,7 +55,7 @@
 <p>
     
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.CourseID }) |*@
-    @Html.ActionLink("Edit Course Details","Edit", "Course", null, new { @class = "btn btn-primary btn-large btn-save" })
+    @Html.ActionLink("Edit Course Details","Edit", "Course", new { id = Model.CourseID }, new { @class = "btn btn-primary btn-large btn-save" })
     
     @*@Html.ActionLink("Edit Course Details", "Edit", "Course", null, new { @class = "btn btn-primary btn-large" })*@
     @Html.ActionLink("Back to List", "Index","Course",null, new { @class="btn btn-primary btn-large btn-save"})

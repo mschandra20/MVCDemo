@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+
 namespace MVCDemo.Controllers
 {
     public class StudentController : Controller
@@ -44,9 +45,13 @@ namespace MVCDemo.Controllers
             var StudentDetails = s_context
                                 .DbSetStudents
                                 .FirstOrDefault(s => s.StudentID == id);
-            var CourseDetails = s_context
-                                .DbSetCourses
-                                .All(StudentDetails.StudentID == id);
+            //var CourseDetails = s_context
+            //                    .DbSetCourses
+            //                    .All(a=>a.StudentID == id);
+
+            //dynamic model = new ExpandoObject();
+            //model.Students = StudentDetails;
+            //model.Enrolls = EnrollDetails;
 
             return View(StudentDetails);
         }
