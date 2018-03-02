@@ -199,7 +199,7 @@ namespace MVCDemo.Controllers
        // [HttpPost]
         public ActionResult DeleteConfirmed(bool confirm,int id)
         {
-            if (confirm)
+            if (confirm)  
             {
                 MContext s_context = new MContext();
 
