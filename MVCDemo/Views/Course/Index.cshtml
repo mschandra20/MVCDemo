@@ -6,7 +6,7 @@
 
 <h2 style="margin-bottom:30px;"> List of Courses</h2>
 
-@using (Html.BeginForm("Index","Course", FormMethod.Get))
+@using (Html.BeginForm("Index", "Course", FormMethod.Get))
 {
     <div style="margin-bottom:20px;">
 
@@ -29,27 +29,35 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Capacity)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit","Course",null,null,null, 
-                                    new { id=item.CourseID }, new { @class = "btn btn-primary btn-large btn-custom" } ) 
-            
-            @Html.ActionLink("Details", "Details", "Course", null, null, null, 
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacity)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "Course", null, null, null,
                                     new { id = item.CourseID }, new { @class = "btn btn-primary btn-large btn-custom" })
-            
-            @Html.ActionLink("Delete", "Delete", "Course", null, null, null, 
-                                    new { id = item.CourseID }, new { @class = "btn btn-danger btn-large btn-custom" })
 
-        </td>
-    </tr>
-}
+                @Html.ActionLink("Details", "Details", "Course", null, null, null,
+                                    new { id = item.CourseID }, new { @class = "btn btn-primary btn-large btn-custom" })
+
+
+               
+                @Html.ActionLink("Delete", "DeleteConfirmed", "Course",
+                 new { confirm = true, id = item.CourseID },
+                 new { onclick = "return confirm('Are you sure want to delete this course with Course ID=" + @item.CourseNumber + "')",
+                     @class = "btn btn-danger btn-large btn-custom"})
+               
+                @*@Html.ActionLink("Delete", "Delete", "Course", null, null, null,
+                    new { id = item.CourseID }, new { @class = "btn btn-danger btn-large btn-custom" })*@
+
+            </td>
+        </tr>
+    }
 
 </table>
 <p>

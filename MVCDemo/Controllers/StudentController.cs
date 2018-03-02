@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Net;
 using System.Web.Mvc;
 
 namespace MVCDemo.Controllers
@@ -180,37 +179,43 @@ namespace MVCDemo.Controllers
 
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            MContext s_context = new MContext();
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            //MContext s_context = new MContext();
 
-            var stu = s_context.DbSetStudents.Find(id);
+            //var stu = s_context.DbSetStudents.Find(id);
 
-            if (stu == null)
-            {
-                return HttpNotFound();
-            }
-            return View(stu);
+            //if (stu == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            //return View(stu);
+            return View();
         }
 
 
-        [HttpPost]
-        [ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
+       // [HttpPost]
+        public ActionResult DeleteConfirmed(bool confirm,int id)
         {
-            MContext s_context = new MContext();
+            if (confirm)
+            {
+                MContext s_context = new MContext();
 
-            var stu = s_context.DbSetStudents.Find(id);
-            s_context.DbSetStudents.Remove(stu);
-            s_context.SaveChanges();
+                var stu = s_context.DbSetStudents.Find(id);
+                s_context.DbSetStudents.Remove(stu);
+                s_context.SaveChanges();
 
-            //return RedirectToAction("Index", "Student");
-            //return true;
-            //return new HttpStatusCodeResult(HttpStatusCode.OK);
-            return Json(JsonRequestBehavior.DenyGet);
-
+                return RedirectToAction("Index", "Student");
+                //return true;
+                //return new HttpStatusCodeResult(HttpStatusCode.OK);
+                //return Json(JsonRequestBehavior.DenyGet);
+            }
+            else
+            {
+                return HttpNotFound();
+            }
         }
 
         [HttpPost]

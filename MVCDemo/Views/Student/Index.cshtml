@@ -99,14 +99,20 @@
                             , new { id = item.StudentID }
                             , new { @class = "btn btn-danger btn-large btn-custom" , @id="Delete", href="#" })*@
 
-                        <input type="submit"
+                        @*<input type="submit"
                                value="Delete"
                                href="#"
                                id="Delete"
                                class="btn btn-danger btn-large btn-custom"
-                               onclick="return confirm('Are you sure want to delete this student with Student ID= @item.EnrollmentNumber')" />
+                               onclick="return confirm('Are you sure want to delete this student with Student ID= @item.EnrollmentNumber')" />*@
 
-
+                            @Html.ActionLink("Delete", "DeleteConfirmed", "Student",
+                            new { confirm = true, id = item.StudentID },
+                            new
+                             {
+                                 onclick = "return confirm('Are you sure want to delete this Student with Student ID=" + @item.StudentID + "')",
+                                 @class = "btn btn-danger btn-large btn-custom"
+                             })
                         @Html.ActionLink("Quick Enroll"
                                       , "Enroll"
                                       , "Enroll"
