@@ -49,8 +49,8 @@ namespace MVCDemo.Models
 
         #endregion
 
-        //[ForeignKey("enrollment")]
-        //public int EnrollmentID { get; set; }
+        [ForeignKey("enrollment")]
+        public int EnrollmentID { get; set; }
 
         //Navigation properties
         public virtual IEnumerable<Enrollment> enrollment { get; set; }

@@ -1,4 +1,5 @@
-﻿using MVCDemo.Models;
+﻿using MVCDemo.DataTransferObjects;
+using MVCDemo.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -37,22 +38,37 @@ namespace MVCDemo.Controllers
         // GET: Student/Details/5
         public ActionResult Details(int id)
         {
-            MContext s_context = new MContext();
-            var EnrollDetails = s_context
-                                .DbSetEnrollments
-                                .FirstOrDefault(s => s.student.StudentID== id);
-            var StudentDetails = s_context
-                                .DbSetStudents
-                                .FirstOrDefault(s => s.StudentID == id);
-            //var CourseDetails = s_context
-            //                    .DbSetCourses
-            //                    .All(a=>a.StudentID == id);
+            using (MContext s_context = new MContext())
+            {
+                var EnrollDetails = s_context
+                                    .DbSetStudents
+                                    .Where(s => s.StudentID == id)
+                                    .Select(e => new StudentDetailsDTO
+                                    {
+                                        StudentName = e.Name,
+                                        StudentNumber = e.EnrollmentNumber,
+                                        CourseList = e.enrollment.Where(a=>a.StudentID==id)
+                                                                 .Select(x => new ListOfCourses
+                                                                    {
+                                                                        CourseName = x.course.Name,
+                                                                        CourseNumber = x.course.CourseNumber
+                                                                    }).ToList(),
+                                    })
+                                    .FirstOrDefault();
 
-            //dynamic model = new ExpandoObject();
-            //model.Students = StudentDetails;
-            //model.Enrolls = EnrollDetails;
+                //var StudentDetails = s_context
+                //                    .DbSetStudents
+                //                    .FirstOrDefault(s => s.StudentID == id);
+                //var CourseDetails = s_context
+                //                    .DbSetCourses
+                //                    .All(a=>a.StudentID == id);
 
-            return View(StudentDetails);
+                //dynamic model = new ExpandoObject();
+                //model.Students = StudentDetails;
+                //model.Enrolls = EnrollDetails;
+
+                return View(EnrollDetails);
+            }
         }
 
         // GET: Student/Create
